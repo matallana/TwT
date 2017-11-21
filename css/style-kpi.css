@@ -1,0 +1,28 @@
+
+input[name="radioFormulario"] {margin-top: 13px; }
+input[name="radioResultado"] {margin-top: 13px; }
+.inputGroupAddonLapiz{cursor:pointer;}
+.resultadoNegativo{
+  color:white;
+  background-color: red;
+  display: block;
+  width : 50px;
+  text-align: center;
+  height : 50px;
+  vertical-align: middle;
+  line-height: 50px;
+  border-radius: 25px;
+}
+.resultadoPositivo{
+  color:white;
+  background-color: green;
+  display: block;
+  width : 50px;
+  text-align: center;
+  height : 50px;
+  vertical-align: middle;
+  line-height: 50px;
+  border-radius: 25px;
+}
+.lblsResultados{font-weight: normal;}
+.lblSemana{text-decoration: underline;}
