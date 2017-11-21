@@ -69,7 +69,7 @@ $data = $data1->nombreUsuariop;
 //$user_perfil_idPerfil = mysqli_real_escape_string($con, $_POST['user_perfil_idPerfil']);
 
 
-$queryinsert = "INSERT INTO usuarioprueba (nombreUsuario, apellidoUsuario, emailUsuario, claveUsuario)
+$queryinsert = "INSERT INTO usuarioprueba (nombreUsuario)
 values ('$data') ";  
 
 $result = mysqli_query($con, $queryinsert);

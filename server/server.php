@@ -20,8 +20,7 @@ $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
 $username = mysqli_real_escape_string($con, $_POST['username']);
 $password = mysqli_real_escape_string($con, $_POST['password']);
 
-$query = "SELECT * FROM `usuarioprueba` WHERE emailUsuario = '$username' AND claveUsuario = '$password'"
-;
+$query = "SELECT * FROM `usr_usuario` WHERE emailUsuario = '$username' AND claveUsuario = '$password'";
 
 
 $result = mysqli_query($con, $query);
