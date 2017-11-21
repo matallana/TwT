@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TweetTrack + Monitoreo en tiempo real</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="shortcut icon" type="imagen/png" href="/imagen/favicon.png"/>
+    <!--<link rel="stylesheet" href="/css/twitter-style.css">-->
+    <!--<link rel="stylesheet" href="https://abs.twimg.com/a/1490982919/css/t1/twitter_more_1.bundle.css">-->
+    <link rel="stylesheet" href="lib/kpi/includes/bootstrap-datepicker/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="css/style-kpi.css">
+    <link rel="stylesheet" href="css/css-multiselect.css">
+    <style media="screen">
+      html, body {
+        height : 100%;
+        min-height: 100%;
+        font-family: 'Roboto', sans-serif;
+        background-color: #F7F7F7;
+      }
+
+      .download {
+        color: #1b95e0;
+        cursor: pointer;
+      }
+
+      #file-input {
+        cursor: pointer;
+        outline: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        filter: alpha(opacity=0); /* IE < 9 */
+        opacity: 0;
+      }
+
+      #image {
+        margin-top: 10px;
+      }
+
+      #cuerpo {
+        margin-top: 20px;
+      }
+
+      #boxing {
+        margin-bottom: 20px;
+        height : 80%;
+      }
+
+      .img-twitter {
+          float : left;
+          margin-right: 10px;
+          margin-bottom: 10px;
+      }
+
+      .img-fly {
+        display: table-cell;
+        vertical-align:middle;
+        text-align:center;
+        width : 20%;
+        margin-left: 35%;
+      }
+
+      .list-censo {
+        list-style: none;
+        padding : 0;
+        margin : 0;
+        display: inline-block;
+        width: 100%;
+      }
+
+      #tweets, #tweets_filter {
+        padding : 0;
+        margin : 0;
+      }
+
+      .media {
+        padding: 10px 0px 0px 0px !important;
+      }
+
+      .none-style {
+        padding : 0 10px 0px 10px !important;
+        margin : 0 !important;
+      }
+
+      hr {
+        padding : 0 !important;
+        margin : 0 !important;
+      }
+
+      .res-user {
+        width : 100%;
+        background-color: #eee;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        display: table;
+      }
+
+      /*
+      * {
+        border-radius: 0 !important;
+        -moz-border-radius: 0 !important;
+      }
+      */
+      label {
+        color : #777;
+      }
+
+      .fondo {
+        background-color: #FFF !important;
+        color : #73879C !important;
+      }
+
+      .title-tweet {
+        color : #1b95e0;
+      }
+
+      .gris {
+        color : #999;
+      }
+
+      #tweet-count {
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      .navbar-inverse {
+        background-color: #EDEDED !important;
+        border-color: #ADB2B5 !important;
+        border: 0px 0px 1px 0px !important;
+      }
+
+      .sub-menu {
+        background-color: #96907f;
+        width: 250px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-top: solid 1px #536271;
+        border-bottom: solid 1px #536271;
+      }
+
+      .sub-menu li a {
+        color : #ccc !important;
+      }
+
+      .verified-value span.glyphicon {
+      	opacity: 0;
+      }
+      .verified-value.active span.glyphicon {
+      	opacity: 1;
+      }
+
+      .title-stack {
+        color:#73879C;
+        font-size:10px;
+        display:block;
+      }
+
+      .number-stack {
+        font-weight: 700;
+        font-family: arial;
+        font-size: 30px;
+        color: #738BA3;
+      }
+
+      .border-stack {
+        border-right: 2px solid #ccc;
+      }
+
+      .dt-count {
+        color:#73879C;
+      }
+
+      .circle-demo {
+        width: 100px;
+        height: 100px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background: #5cb85c;
+      }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="lib/prettify.js"></script>
+    <script type="text/javascript" src="lib/js-multiselect.js"></script>
+    <script type="text/javascript"></script>
+
+  </head>
+  <body ng-app="main" ng-controller="panelCtrl" >
+
+    <div  id="wrapper" >
+
+    <div id="sidebar-wrapper">
+      <ul ng-class="sidebar-nav" id="accordion">
+          <li style="background: #96907f;" class="sidebar-brand">
+              <a href="#">
+                  <img src="imagen/LogoTT-2.png" style="width:80%; margin-right:5px;" alt="">
+              </a>
+          </li>
+          <li role="separator" class="divider"></li>
+          <li>
+              <a class="buttonMenu" data-toggle="collapse" data-parent="#accordion" ng-click=""><span style="margin-right:10px;" class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a>
+          </li>
+          <li>
+              <a class="buttonMenu" data-toggle="collapse" data-parent="#accordion">
+                <span style="margin-right:10px;" class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                TL
+                <span style="background-color: #FF2022; width: auto; display: inline; margin-left: 80px;" class="badge badge-alerta">0</span>
+                <span style="background-color: #FFF026; color: #555; width: auto; display: inline;" class="badge badge-mencion">0</span>
+              </a>
+          </li>
+          <li>
+              <a class="buttonMenu" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span style="margin-right:10px;" class="glyphicon glyphicon-filter" aria-hidden="true"></span>Filtros</a>
+          </li>
+          <li>
+              <a class="buttonMenu" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span style="margin-right:10px;" class="glyphicon glyphicon-tower" aria-hidden="true"></span>Administración<span style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                <ul class="sub-menu">
+                  <li>
+                    <a class="buttonMenu" href="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-wrench" aria-hidden="true"></span>Ajustes</a>
+                  </li>
+                  <li>
+                    <a class="buttonMenu" href="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>Clientes</a>
+                  </li>
+                </ul>
+              </div>
+          </li>
+          <li>
+              <a class="buttonMenu" href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPI</a>
+          </li>
+      </ul>
+      <div style="position:absolute; bottom:20px; text-align: center;">
+        <img src="/imagen/logo-brecha.png" width="40%" alt="">
+      </div>
+
+    </div>
+
+    <!--NAVEGADOR-->
+    <nav class = "navbar navbar-inverse navbar-static-top" role = "navigation">
+      <div class="container-fluid">
+        <div class="navbar-header" style="width:100%;">
+          <a class="navbar-brand" href="#">
+            <span id="menu-toggle" style="color:#777;" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+          </a>
+          <div class="dropdown navbar-brand" style="float:right;">
+            <span style="cursor:pointer; color:#777;" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="glyphicon glyphicon-cog" style="color:#777;" aria-hidden="true"></span>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu3">
+              <li><a class="buton-notf" href="#">Notificaciones</a></li>
+              <!--<li role="separator" class="divider"></li>-->
+              <li><a class="buton-conf" ng-click="goToLogout()">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+   </nav>
+   <!--FIN NAVEGADOR-->
+
+   <!--CUERPO-->
+    <!--<div id="cuerpo" class="container">-->
+    <div id="base-container" class="container-fluid">
+
+    </div>
+
+    <div id="tl_reporte" class="container-fluid">
+
+    </div>
+
+    </div>
+    <!--END MODAL-->
+
+    <script type="text/javascript">
+    
+    </script>
+
+  </body>
+</html>

@@ -18,7 +18,7 @@ app.config(function($routeProvider, $locationProvider){
 	.when('/login', {
 		templateUrl: './component/login.html',
 		controller: 'loginCtrl'
-	}).when('/dashboard', {
+	}).when('/panelprueba', {
 		resolve: {
 		    check: function($location, user){
 		    	if(!user.isUserLoggedIn()){
@@ -26,9 +26,19 @@ app.config(function($routeProvider, $locationProvider){
 		        }
 		    }
 		},
-		templateUrl:'./component/dashboard.html',
-		controller: 'dashboardCtrl'
+		templateUrl:'./component/panelprueba.html',
+		controller: 'panelCtrl'
 
+	}).when('/dashboard',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/dashboard.html',
+		controller: 'dashboardCtrl'
 	})
 	.otherwise({
 		template: '404'
@@ -82,69 +92,10 @@ app.service('user', function(){
 	}
 })
 
-/*
-//crear servicio agregarUsuario
+//se crean controladores................................
 
-app.service('usuario',function(){
-	var nombreUsuariop;
-	var claveUsuariop,
-	var fechaCreacion;
-	var createin = false;
+//control login
 
-	this.setNombreUsuariop = function(usuarioNombreU){
-		nombreUsuariop = usuarioNombreU;
-	};
-
-	this.getNombreUsuariop = function(){
-		return nombreUsuariop;
-	};
-	this.setClaveUsuariop = function(usuarioClaveU){
-		claveUsuariop = usuarioClaveU;
-	};
-	this.getClaveUsuariop = function(){
-		return claveUsuariop;
-	};
-	this.setFechaCreacion = function(usuarioFechac){
-		fechaCreacion = usuarioFechac;
-	};
-
-	this.getFechaCreacion = function(){
-		return fechaCreacion;
-	};
-	this.agregaUsuarioOk = function(){
-		if(!!localStorage.getItem('dashboard')){
-			createin = true;
-			var datos = JSON.parse(localStorage.getItem('dashboard'));
-			nombreUsuariop = datos.nombreUsuariop;
-			claveUsuariop = datos.claveUsuariop;
-			fechaCreacion = datos.fechaCreacion;
-		}
-		return createiin;
-	};
-	this.saveDatos = function(datos){
-		nombreUsuariop = datos.nombreUsuariop;
-		claveUsuariop = datos.claveUsuariop;
-		fechaCreacion = datos.fechaCreacion;
-		createin = true;
-		localStorage.setItem('dashboard', JSON.stringify({
-			nombreUsuariop: nombreUsuariop,
-			claveUsuariop: claveUsuariop,
-			fechaCreacion: fechaCreacion
-		}));
-	};
-	this.cleatDatos = function(){
-		localStorage.removeItem('dashboard');
-		nombreUsuariop = "";
-		claveUsuariop = "";
-		fechaCreacion = ""; 
-	}
-})
-*/
-
-
-
-
-//se crean controladores 
 app.controller('loginCtrl', function($scope,$http, $location, user){
 	$scope.login= function(){
 		var username = $scope.username;
@@ -159,7 +110,7 @@ app.controller('loginCtrl', function($scope,$http, $location, user){
 		}).then(function(response){
 			if(response.data.status == 'loggedin'){
 				user.saveData(response.data); 
-				$location.path('/dashboard');
+				$location.path('/panelprueba');
 			} else {
 				alert('invalid login');
 			}
@@ -167,6 +118,16 @@ app.controller('loginCtrl', function($scope,$http, $location, user){
 	}
 });
 
+//control panel
+app.controller('panelCtrl', function($scope, $location, $http){
+	//logout panel
+	$scope.goToLogout = function(){
+		$location.path('/logout');
+	};
+});
+
+
+//control registro
 app.controller('dashboardCtrl', function($scope,$location, $http){
 
 	//logout de dashboard
@@ -189,6 +150,8 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 				 alert("Ocurrio un error!, no pudo ser registrado");
 				 console.error(error);
 		   });
+
+		   $location.path('/panel');
 	};
    /* $scope.insertarUsuario = function(){
 		$http.post('http://localhost/TwT/server/insertar.php', {'nombreUsuariop1':$scope.nombreUsuariop}).then(function(response){
@@ -201,9 +164,6 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 	};*/
 	
 });
-app.controller('insertarCtrl', function($scope, $location, $http){
-
-})
 
 
 app.controller('usuarioCtrl', function($scope, user, $location){
