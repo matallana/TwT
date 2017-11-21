@@ -71,7 +71,7 @@ $data = $data1->nombreUsuariop;
 
 
 $queryinsert = "INSERT INTO usuarioprueba (nombreUsuario, apellidoUsuario, emailUsuario, claveUsuario)
-values ('$nombreUsuario','$apellidoUsuario','$emailUsuario','$claveUsuario') ";  
+values ('$data') ";  
 
 $result = mysqli_query($con, $queryinsert);
 
