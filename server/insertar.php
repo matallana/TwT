@@ -43,6 +43,8 @@ $postdata = file_get_contents('php://input');
 $data1 = json_decode($postdata);
 $data = $data1->nombreUsuariop;
 
+//data
+
 //$json = '{"nombreUsuariop": alan}';
 //$data1 =json_decode($json);
 //var_dump($data1);
