@@ -31,7 +31,6 @@ if(mysqli_query($con, $query)){
 }*/
 
 // header('Content-type: application/json');
-$con = mysqli_connect('localhost', 'root', '', 'desarrollo');
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: PUT, GET, POST");
@@ -40,9 +39,12 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 
 $postdata = file_get_contents('php://input');
-$data1 = json_decode($postdata);
-$data = $data1->nombreUsuariop;
+$data1 = json_encode($postdata);
+$dataraw = json_decode($data1);
+// $data = $dataraw['nombreUsuario'];
+$data = $dataraw;
 
+$con = mysqli_connect('localhost', 'root', '', 'desarrollo');
 
 //$json = '{"nombreUsuariop": alan}';
 //$data1 =json_decode($json);
@@ -69,8 +71,7 @@ $data = $data1->nombreUsuariop;
 //$user_perfil_idPerfil = mysqli_real_escape_string($con, $_POST['user_perfil_idPerfil']);
 
 
-$queryinsert = "INSERT INTO usuarioprueba (nombreUsuario)
-values ('$data') ";  
+$queryinsert = "INSERT INTO usuarioprueba (nombreUsuario) values ('$data') ";  
 
 $result = mysqli_query($con, $queryinsert);
 

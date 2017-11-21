@@ -167,6 +167,9 @@ app.controller('loginCtrl', function($scope,$http, $location, user){
 	}
 });
 
+
+
+
 app.controller('dashboardCtrl', function($scope,$location, $http){
 
 	//logout de dashboard
@@ -174,21 +177,16 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 		$location.path('/logout');
 	};
 
-	$scope.insertarUsuario = function(){
+	$scope.insertarUsuario = function(data, status, headers, config){
 		
-		$http({
-			url: 'http://localhost/TwT/server/insertar.php',
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			 data: 'nombreUsuario='+$scope.nombreUsuario+'&apellidoUsuario='+$scope.apellidoUsuario+'&emailUsuario='+$scope.emailUsuario+'&claveUsuario='+$scope.claveUsuario
-			}).then(function(response){
+		$http.post("http://localhost/TwT/server/insertar.php",{'nombreUsuario': $scope.nombreUsuario, 'apellidoUsuario': $scope.apellidoUsuario}).
+		then(function(response){
 				alert("El usuario "+$scope.nombreUsuario+" fue registrado");
+				console.log(response);
 			},function(error){
 				 alert("Ocurrio un error!, no pudo ser registrado");
 				 console.error(error);
-		   });
+			});
 	};
    /* $scope.insertarUsuario = function(){
 		$http.post('http://localhost/TwT/server/insertar.php', {'nombreUsuariop1':$scope.nombreUsuariop}).then(function(response){
