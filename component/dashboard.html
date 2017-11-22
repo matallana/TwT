@@ -58,7 +58,7 @@
                         <br>
                         <label ng-hide="eleccion==='4'" for="claveUsuariop">Contraseña:</label> 
                         <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
-                                <input type="password" min="0" class="form-control inputNumero" id="claveUsuario" ng-model="claveUsuario" required>
+                                <input type="password" min="6" class="form-control inputNumero" id="claveUsuario" ng-model="claveUsuario" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" required>
                                 <span class="input-group-addon inputGroupAddonLapiz">
                                         <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
                                     </span>
