@@ -1,36 +1,5 @@
 <?php
-/*  //$json='[{"nombreUsuariop":"jajaja"}]';
-
-//$con = mysqli_connect('localhost', 'root', '', 'desarrollo');
-var_dump($con);
-$_POST[ = json_decode($nombreUsuariop, true);
-
 header('Content-type: application/json');
-header('Access-Control-Allow-Origin: *');
- 
-
-
-
-
-
-
-echo (info);
-
-//Usuario......
-
-$nombreUsuariopa = mysqli_real_escape_string($con, $_POST[-> nombreUsuariop);
-//$claveUsuariop = mysqli_real_escape_string($con, $_POST[-> claveUsuariop);
-
-
-$query = "INSERT INTO `usuarioprueba`(nombreUsuariop) values $'omb'eUsuariopa)";
-
-if(mysqli_query($con, $query)){
-	echo "inserto";
-}else{
-	echo 'Failed';
-}*/
-
-// header('Content-type: application/json');
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: PUT, GET, POST");
@@ -39,12 +8,25 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 
 $postdata = file_get_contents('php://input');
-$data1 = json_encode($postdata);
-$dataraw = json_decode($data1);
-// $data = $dataraw['nombreUsuario'];
-$data = $dataraw;
+$dataraw = json_decode($postdata, true);
+$nombre = $dataraw['nombreusuario'];
+$apellido = $dataraw['apellidousuario'];
+$email = $dataraw['emailusuario'];
+$clave = $dataraw['claveusuario'];
+$fecha = $dataraw['fecha'];
+$telfmovil = $dataraw['telfmovil'];
+$telffijo = $dataraw['telffijo'];
+	
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
+$queryinsert = "INSERT INTO usr_usuarioOLD (idUsuario, nombreUsuario, apellidousuario, emaiUsuario, avatartUsuario, claveUsuario, fechaCreacion, telefonoMovil, telefonoFijo, user_perfil_idPerfil) values ('', '$nombre','$apellido','$email', ' ', '$clave', '$fecha', '$telfmovil', '$telffijo', '1') ";  
+
+if (!$con){
+	die('No pudo conectarse: ' . mysql_error());
+} else{
+	$result = mysqli_query($con, $queryinsert);
+	
+}
 
 //$json = '{"nombreUsuariop": alan}';
 //$data1 =json_decode($json);
@@ -71,9 +53,7 @@ $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
 //$user_perfil_idPerfil = mysqli_real_escape_string($con, $_POST['user_perfil_idPerfil']);
 
 
-$queryinsert = "INSERT INTO usuarioprueba (nombreUsuario) values ('$data') ";  
 
-$result = mysqli_query($con, $queryinsert);
 
 
 

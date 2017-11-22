@@ -177,17 +177,72 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 		$location.path('/logout');
 	};
 
-	$scope.insertarUsuario = function(data, status, headers, config){
+	// $scope.insertarUsuario = function() {
+    //     $http.post(
+	// 		"http://localhost/TwT/server/insertar.php", {
+	// 			'nombreUsuariop': $scope.nombreUsuariop,
+	// 			'apellidoUsuario': $scope.apellidoUsuario
+	// 		}).success(function(data){
+	// 			alert(data);
+	// 			$scope.nombreUsuariop = null;
+	// 			$scope.apellidoUsuario = null;
+
+	// 		});
+
+
+	// }
+
+	$scope.insertarUsuario = function(){
+		var obj = [];
 		
-		$http.post("http://localhost/TwT/server/insertar.php",{'nombreUsuario': $scope.nombreUsuario, 'apellidoUsuario': $scope.apellidoUsuario}).
-		then(function(response){
+		for ( i = 1; i < obj.length; i++) {
+			obj.push({ id: i});
+		}
+	
+
+		// Damos el formato a nuestra data enviado al backend
+		var FormData = {
+			'nombreusuario' : document.formUsuario.nombreUsuario.value,
+			'apellidousuario' : document.formUsuario.apellidoUsuario.value,
+			'emailusuario' : document.formUsuario.emailUsuario.value,
+			'claveusuario' : document.formUsuario.claveUsuario.value,
+			'fecha' : document.formUsuario.fechaCreacion.value,
+			'telfmovil' : document.formUsuario.telefonoMovilUsuario.value,
+			'telffijo' : document.formUsuario.telefonoFijoUsuario.value
+		  };
+		  var method = 'POST';
+		  var url = 'http://localhost/TwT/server/insertar.php';
+		  // ----------------------------------------------------------------
+
+		  //Ejecutamos el Http, usando las variables previamente definidas,
+		$http({			
+			url: url,
+			method: method,
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			 data:   FormData 
+			}).
+			then(function(response){
+				console.dir(response) // aqui vez desde la consola como te llegan los datos
+				$scope.objects = response.data
 				alert("El usuario "+$scope.nombreUsuario+" fue registrado");
 				console.log(response);
 			},function(error){
 				 alert("Ocurrio un error!, no pudo ser registrado");
 				 console.error(error);
 			});
-	};
+			};
+		});			
+		// ---------------------------------------------------------------------
+			// then(function(response){
+			// 	alert("El usuario "+$scope.nombreUsuario+" fue registrado");
+			// 	console.log(response);
+			// },function(error){
+			// 	 alert("Ocurrio un error!, no pudo ser registrado");
+			// 	 console.error(error);
+			// });
+	
    /* $scope.insertarUsuario = function(){
 		$http.post('http://localhost/TwT/server/insertar.php', {'nombreUsuariop1':$scope.nombreUsuariop}).then(function(response){
 			alert("El usuario fue registrado");
@@ -198,7 +253,7 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 		});
 	};*/
 	
-});
+
 app.controller('insertarCtrl', function($scope, $location, $http){
 
 })
