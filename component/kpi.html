@@ -1,0 +1,543 @@
+<div class="col-lg-4">
+        <div class="panel panel-default" id="panelIngreso">
+            <div class="panel-heading fondo">
+              <span id="tituloCrud">Ingresar Registro</span>
+            </div>
+
+            <div class="panel-body">
+                <div class = "form-group text-center">
+                    <div class = "radio-inline">
+                        <label><input type="radio" name="radioFormulario" value="fb" checked><img src="/imagen/fb.png" alt="Facebook" height="42" width="42"></label>
+                    </div>
+                    <div class = "radio-inline">
+                        <label><input type="radio" name="radioFormulario" value="tw"><img src="/imagen/tw.png" alt="Twitter" height="42" width="42"></label>
+                    </div>
+                    <div class = "radio-inline">
+                        <label><input type="radio" name="radioFormulario" value="ht"><img src="/imagen/ht.png" alt="Web" height="42" width="42"></label>
+                    </div>
+                </div>
+                <label for="fecha1">Fecha Inicial:</label>
+                    <div class='input-group date' id='datepicker'>
+                        <input type='text' class="form-control" id="picker1-input" readonly />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar">
+                            </span>
+                        </span>
+                    </div>
+                    <br>
+                    <label for="fecha1" class="hide_dp4">Fecha Final:</label>
+                    <div class='input-group date hide_dp4' id='datepicker4'>
+                        <input type='text' class="form-control" id="picker4-input" readonly />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar">
+                            </span>
+                        </span>
+                    </div>
+                    <br>
+                    <label for="dias">Cantidad de días:</label>
+                    <input type="number" min="0" disabled class="form-control" id="dias">
+                <br>
+                <div class = "form-group" id="grpFb">
+                    <form id="formFacebook">
+
+                        <label for="fb_fan">Fans:</label>
+                        <div class='input-group inputGroupLapiz'>
+                            <input type="number" min="0" class="form-control inputNumero" id="fb_fan">
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="fb_alc">Alcance:</label>
+                        <div class='input-group inputGroupLapiz'>
+                            <input type="number" min="0" class="form-control inputNumero" id="fb_alc">
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="fb_imp">Impresiones:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="fb_imp">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="fb_int">Interacciones:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="fb_int">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="fb_pub">Publicaciones:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="fb_pub">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class = "form-group hidden" id="grpTw">
+                    <form id="formTwitter">
+                        <label for="tw_fol">Followers:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="tw_fol">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="tw_rea">Reach:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="tw_rea">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="tw_imp">Impressions:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="tw_imp">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="tw_con">Contribuidores:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="tw_con">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="tw_gen">Tweets Generados:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="tw_gen">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+
+                        <br>
+                        <label for="tw_rt">Retweets:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="tw_rt">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="tw_rep">Replies:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="tw_rep">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="tw_men">Mentions:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="tw_men">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class = "form-group hidden" id="grpHt">
+                    <form id="formWeb">
+                        <label for="ht_vis">Vistas Únicas:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="ht_vis">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="ht_reb">Rebote:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="ht_reb">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label for="ht_per">Permanencia:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input type="number" min="0" class="form-control inputNumero" id="ht_per">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="">
+                    <div class="text-center" style="width: 100%">
+                        <div class="btn-group botonera">
+                            <button type="button" class="btn btn-success" data-toggle="confirmation" id="btnGua">Guardar</button>
+                            <button type="button" class="btn btn-warning" id="btnEdi">Editar</button>
+                            <button type="button" class="btn btn-danger hidden" data-toggle="confirmation" id="btnEli">Eliminar</button>
+                            <button type="button" class="btn" id="btnLim">Limpiar</button>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-group text-center">
+
+                    </div>
+                  -->
+                </div>
+
+                    <div class="alert alert-success hidden" id="resKpiSuccess">
+                    <strong>Acción: </strong> Datos guardados correctamente.
+                    </div>
+
+                    <div class="alert alert-warning hidden" id="resKpiEdited">
+                    <strong>Acción: </strong> Datos editados correctamente.
+                    </div>
+
+                    <div class="alert alert-danger hidden" id="resKpiDeleted">
+                    <strong>Acción: </strong> Datos eliminados correctamente.
+                    </div>
+
+                    <div class="alert alert hidden" id="resKpiError">
+                    <strong>Acción: </strong> Error en la validación; existen campos vacíos.
+                    </div>
+
+                    <div class="alert alert hidden" id="resKpiErrorEli">
+                    <strong>Acción: </strong> Error al eliminar; no hay elegida una fecha.
+                    </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="form-group panel panel-default">
+            <div class="panel-heading fondo">
+                Resultados
+            </div>
+            <div class="panel-body">
+                <div class = "form-group text-center">
+                    <div class = "radio-inline">
+                        <label><input type="radio" name="radioResultado" value="fb" checked><img src="/imagen/fb.png" alt="Facebook" height="42" width="42"></label>
+                    </div>
+                    <div class = "radio-inline">
+                        <label><input type="radio" name="radioResultado" value="tw"><img src="/imagen/tw.png" alt="Twitter" height="42" width="42"></label>
+                    </div>
+                    <div class = "radio-inline">
+                        <label><input type="radio" name="radioResultado" value="ht"><img src="/imagen/ht.png" alt="Web" height="42" width="42"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fechai2">Fecha Inicial:</label>
+                    <div class='input-group date' id='datepickerdesde'>
+                        <input type='text' class="form-control" id="picker2-input" readonly />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar">
+                            </span>
+                        </span>
+                    </div>
+                    <br>
+                    <label for="fechai2">Comparar Con:</label>
+                    <div class='input-group date' id='datepickerhasta'>
+                        <input type='text' class="form-control" id="picker3-input" readonly />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar">
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default datos-resultado hidden">
+          <div class="panel-heading fondo">
+            Comparación
+          </div>
+          <div class="panel-body">
+            <table class="table">
+              <thead class="thead-inverse">
+                <tr class="table-active">
+                  <th></th>
+                  <th><label for="" style="font-size:13px;" class="label label-primary">Semana 1</label></th>
+                  <th><label for="" style="font-size:13px;" class="label label-success">Semana 2</label></th>
+                </tr>
+              </thead>
+              <!-- -->
+              <tbody class="resultadosFacebook hidden">
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Fans</td>
+                  <td><label for="resultadoFans" class="lblsResultados" id="resultadoFansFbS1"></label></td>
+                  <td><label for="resultadoFans" class="lblsResultados" id="resultadoFansFbS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Alcance</td>
+                  <td><label for="resultadoAlcance" class="lblsResultados" id="resultadoAlcanceFbS1"></label></td>
+                  <td><label for="resultadoAlcance" class="lblsResultados" id="resultadoAlcanceFbS2"></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Impresiones</td>
+                  <td><label for="resultadoImpresiones" class="lblsResultados" id="resultadoImpresionesFbS1"></label></td>
+                  <td><label for="resultadoImpresiones" class="lblsResultados" id="resultadoImpresionesFbS2"></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Interacciones</td>
+                  <td><label for="resultadoInteracciones" class="lblsResultados" id="resultadoInteraccionesFbS1"></label></td>
+                  <td><label for="resultadoInteracciones" class="lblsResultados" id="resultadoInteraccionesFbS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Publicaciones</td>
+                  <td><label for="resultadoPublicaciones" class="lblsResultados" id="resultadoPublicacionesFbS1"></label></td>
+                  <td><label for="resultadoPublicaciones" class="lblsResultados" id="resultadoPublicacionesFbS2"></td>
+                </tr>
+              </tbody>
+              <!-- -->
+              <tbody class="resultadosTwitter hidden">
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Followers</td>
+                  <td><label for="resultadoFollowers" class="lblsResultados" id="resultadoFollowersTwS1"></label></td>
+                  <td><label for="resultadoFollowers" class="lblsResultados" id="resultadoFollowersTwS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Reach</td>
+                  <td><label for="resultadoReach" class="lblsResultados" id="resultadoReachTwS1"></label></td>
+                  <td><label for="resultadoReach" class="lblsResultados" id="resultadoReachTwS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Impressions</td>
+                  <td><label for="resultadoImpressions" class="lblsResultados" id="resultadoImpressionsTwS1"></label></td>
+                  <td><label for="resultadoImpressions" class="lblsResultados" id="resultadoImpressionsTwS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Contribuidores</td>
+                  <td><label for="resultadoContribuidores" class="lblsResultados" id="resultadoContribuidoresTwS1"></label></td>
+                  <td><label for="resultadoContribuidores" class="lblsResultados" id="resultadoContribuidoresTwS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Tweets Generados</td>
+                  <td><label for="resultadoTweets-Generados" class="lblsResultados" id="resultadoTweets-GeneradosTwS1"></label></td>
+                  <td><label for="resultadoTweets-Generados" class="lblsResultados" id="resultadoTweets-GeneradosTwS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Retweets</td>
+                  <td><label for="resultadoRetweets" class="lblsResultados" id="resultadoRetweetsTwS1"></label></td>
+                  <td><label for="resultadoRetweets" class="lblsResultados" id="resultadoRetweetsTwS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Replies</td>
+                  <td><label for="resultadoReplies" class="lblsResultados" id="resultadoRepliesTwS1"></label></td>
+                  <td><label for="resultadoReplies" class="lblsResultados" id="resultadoRepliesTwS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Mentions</td>
+                  <td><label for="resultadoMentions" class="lblsResultados" id="resultadoMentionsTwS1"></label></td>
+                  <td><label for="resultadoMentions" class="lblsResultados" id="resultadoMentionsTwS2"></label></td>
+                </tr>
+              </tbody>
+              <!-- -->
+              <tbody class="resultadosWeb hidden">
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Visitas Únicas</td>
+                  <td><label for="resultadoVisitas-Unicas" class="lblsResultados" id="resultadoVisitas-UnicasHtS1"></label></td>
+                  <td><label for="resultadoVisitas-Unicas" class="lblsResultados" id="resultadoVisitas-UnicasHtS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Rebote</td>
+                  <td><label for="resultadoRebote" class="lblsResultados" id="resultadoReboteHtS1"></label></td>
+                  <td><label for="resultadoRebote" class="lblsResultados" id="resultadoReboteHtS2"></label></td>
+                </tr>
+                <tr>
+                  <td style="color: #73879C; font-weight: bold;">Permanencia</td>
+                  <td><label for="resultadoPremanencia" class="lblsResultados" id="resultadoPremanenciaHtS1"></label></td>
+                  <td><label for="resultadoPremanencia" class="lblsResultados" id="resultadoPremanenciaHtS2"></label></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel panel-default datos-resultado hidden">
+          <div class="panel-heading fondo">
+            Evolución
+          </div>
+          <div class="panel-body">
+              <table class="table">
+                  <thead class="thead-inverse">
+                      <tr class="table-active">
+                          <th><label for="" style="font-size:13px;" class="label label-primary">KPI's</label></th>
+                          <th><label for="" style="font-size:13px;" class="label label-success">Porcentajes</label></th>
+                      </tr>
+                  </thead>
+                  <!-- -->
+                  <tbody class="resultadosFacebook hidden">
+                      <tr>
+                          <td style="color: #0251BD; font-weight: bold;">Evolución Fans</td>
+                          <td style="color: #73879C; font-weight:bold;"><label id="evolucionFans" class="lblsResultados"></label></td>
+                          <td><label  for="evoFans" id="evoFans"></label></td>
+                      
+
+                      </tr>
+                      <tr>
+                          <td style="color: #0251BD; font-weight: bold;">Evolución Alcances</td>
+                          <td style="color: #73879C; font-weight:bold;"><label id="evolucionAlcance" class="lblsResultados"></label></td>
+                          <td><label for="evoAlcan" id="evoAlcan"></label></td>
+                      </tr>
+                      <tr>
+                              <td style="color: #0251BD; font-weight: bold;">Evolución Interacciones</td>
+                              <td style="color: #73879C; font-weight:bold;"><label id = "interaccionSemana" class= "lblsResultados"></label></td>
+                              <td><label for="evoInterac" id="evoInterac"></label></td>
+                      </tr>
+                      <tr>
+                              <td style="color: #0251BD; font-weight: bold;">Evolución Impresiones</td>
+                              <td style="color: #73879C; font-weight:bold;"><label id = "impresionesSemana" class= "lblsResultados"></label></td>
+                              <td><label for="evoImpres" id="evoImpres"></label></td>
+                      </tr>
+                  </tbody>
+                  <!-- -->
+                  <tbody class="resultadosTwitter hidden">
+                          <tr>
+                              <td style="color: #0251BD; font-weight: bold;">Evolución Fans</td>
+                              <td style="color: #73879C; font-weight:bold;"><label id="evolucionFansT" class="lblsResultados"></label></td>
+                              <td><label  for="evoFansT" id="evoFansT"></label></td>
+                          </tr>
+                          <tr>
+                              <td style="color: #0251BD; font-weight: bold;">Evolución Alcances</td>
+                              <td style="color: #73879C; font-weight:bold;"><label id="evolucionAlcanceT" class="lblsResultados"></label></td>
+                              <td><label for="evoAlcanT" id="evoAlcanT"></label></td>
+                          </tr>
+                          <tr>
+                                  <td style="color: #0251BD; font-weight: bold;">Evolución Interacciones</td>
+                                  <td style="color: #73879C; font-weight:bold;"><label id = "interaccionSemanaT" class= "lblsResultados"></label></td>
+                                  <td><label for="evoInteracT" id="evoInteracT"></label></td>
+                          </tr>
+                          <tr>
+                                  <td style="color: #0251BD; font-weight: bold;">Evolución Impresiones</td>
+                                  <td style="color: #73879C; font-weight:bold;"><label id = "impresionesSemanaT" class= "lblsResultados"></label></td>
+                                  <td><label for="evoImpresT" id="evoImpresT"></label></td>
+                          </tr>
+                      </tbody>
+                      <!-- -->
+                      <tbody class="resultadosWeb hidden">
+                              <tr>
+                                  <td style="color: #0251BD; font-weight: bold;">Evolución Fans</td>
+                                  <td style="color: #73879C; font-weight:bold;"><label id="evolucionFansW" class="lblsResultados"></label></td>
+                                  <td><label  for="evoFansW" id="evoFansW"></label></td>
+                              </tr>
+                              <tr>
+                                  <td style="color: #0251BD; font-weight: bold;">Evolución Alcances</td>
+                                  <td style="color: #73879C; font-weight:bold;"><label id="evolucionAlcanceW" class="lblsResultados"></label></td>
+                                  <td><label for="evoAlcanW" id="evoAlcanW"></label></td>
+                              </tr>
+                              <tr>
+                                      <td style="color: #0251BD; font-weight: bold;">Evolución Interacciones</td>
+                                      <td style="color: #73879C; font-weight:bold;"><label id = "interaccionSemanaW" class= "lblsResultados"></label></td>
+                                      <td><label for="evoInteracW" id="evoInteracW"></label></td>
+                              </tr>
+                          </tbody>
+              </table>
+
+              
+              <!--<div class="col-lg-2">
+                  <label id = "evolucionFans" class= "lblsResultados">Fans</label>
+                  <label class="circle-demo" for="evoFans" id="evoFans"></label>
+                </div>
+                <div class="col-lg-2">
+                  <label id = "evolucionAlcance" class= "lblsResultados">Alcance</label>
+                  <label class="circle-demo" for="evoAlcan" id="evoAlcan"></label>
+                </div>
+                <div class="col-lg-2">
+                  <label id = "interaccionSemana1" class= "lblsResultados">Interacción Semana 1</label>
+                  <label class="circle-demo" for="evoInterac1" id="evoInterac1"></label>
+                </div>
+                <div class="col-lg-2">
+                  <label id = "interaccionSemana2" class= "lblsResultados">Interacción Semana 2</label>
+                  <label class="circle-demo" for="evoInterac2" id="evoInterac2"></label>
+                </div>
+                <div class="col-lg-2">
+                  <p>
+                    <label id = "impresionesSemana1" class= "lblsResultados">Impresiones Semana 1</label>
+                    <label class="circle-demo" for="evoInterac2" id="evoImpres1"></label>
+                  </p>
+
+                </div>
+                <div class="col-lg-2">
+                  <label id = "impresionesSemana2" class= "lblsResultados">Impresiones Semana 2</label>
+                  <label class="circle-demo" for="evoImpres2" id="evoImpres2"></label>
+                </div>-->
+          </div>
+        </div>
+        <div class="panel panel-default datos-resultado hidden">
+              <div class="panel-heading fondo">
+                Gráfico
+              </div>
+              <div class="panel-body">
+                      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                      
+                         <!-- <script type="text/javascript">
+                          (function() {
+                              var Kpi1 = <label id="evolucionFans" class="lblsResultados"  for="evoFans" id="evoFans"></label>;
+                      
+                              Highcharts.chart('container', {
+                                  chart: {
+                                      type: 'column'
+                                  },
+                                  title: {
+                                      text: 'Gráfico KPIs comparación'
+                                  },
+                                  credits: {
+                                          enabled: false
+                                      },
+                                  xAxis: {
+                                      categories: [
+                                      
+                                      'KPI 1',
+                                      ],
+                                       crosshair: true
+                                  },
+                                  yAxis: {
+                                      title: {
+                                          text: 'Total Kpi en %'
+                                      }
+                              
+                                  },
+                                  legend: {
+                                      enabled: false
+                                  },
+                                  plotOptions: {
+                                      series: {
+                                          borderWidth: 0,
+                                          dataLabels: {
+                                              enabled: true,
+                                              format: '{point.y:.1f}%'
+                                          },
+                                      }
+                                  },
+                              
+                                  tooltip: {  
+                                      headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                                      pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> Total<br/>'
+                                  },
+                              
+                                  series: [{
+                                      name:'Valor' ,
+                                      colorByPoint: true,
+                                      data: [{
+                                          name: 'Evolución Fans',
+                                          y: Kpi1,
+                                          color: '#FAAC58',
+                                    
+                                      }]
+                                  }],
+                                  
+                              });
+                          })();
+                          </script>-->
+               
+              </div>
+            </div>
+      </div>

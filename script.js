@@ -29,7 +29,7 @@ app.config(function($routeProvider, $locationProvider){
 		templateUrl:'./component/panelprueba.html',
 		controller: 'panelCtrl'
 
-	}).when('/dashboard',{
+	}).when('/registro',{
 		resolve: {
 		    check: function($location, user){
 		    	if(!user.isUserLoggedIn()){
@@ -37,8 +37,18 @@ app.config(function($routeProvider, $locationProvider){
 		        }
 		    }
 		},
-		templateUrl: './component/dashboard.html',
-		controller: 'dashboardCtrl'
+		templateUrl: './component/registro.html',
+		controller: 'registroCtrl'
+	}).when('/kpi',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/kpi.html',
+		controller: 'kpiCtrl'
 	})
 	.otherwise({
 		template: '404'
@@ -124,11 +134,12 @@ app.controller('panelCtrl', function($scope, $location, $http){
 	$scope.goToLogout = function(){
 		$location.path('/logout');
 	};
+	
 });
 
 
 //control registro
-app.controller('dashboardCtrl', function($scope,$location, $http){
+app.controller('registroCtrl', function($scope,$location, $http){
 
 	//logout de dashboard
 	$scope.goToLogout = function(){
@@ -151,7 +162,7 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 				 console.error(error);
 		   });
 
-		   $location.path('/panel');
+		  
 	};
    /* $scope.insertarUsuario = function(){
 		$http.post('http://localhost/TwT/server/insertar.php', {'nombreUsuariop1':$scope.nombreUsuariop}).then(function(response){
@@ -165,6 +176,13 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 	
 });
 
+app.controller('eleccionCtrl', function($scope){
+	$scope.opciones = ['Administrador','CM Administrador','CM Usuario','CM cliente'];
+});
+
+app.controller('kpiCtrl', function($scope, $location, $html){
+
+});
 
 app.controller('usuarioCtrl', function($scope, user, $location){
 	$scope.user = user.getName();
