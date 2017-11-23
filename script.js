@@ -1,5 +1,7 @@
+
 //se crea el modulo app
 var app = angular.module('main', ['ngRoute']);
+
 
 
 //Se configuran las rutas 
@@ -187,7 +189,4 @@ app.controller('kpiCtrl', function($scope, $location, $html){
 app.controller('usuarioCtrl', function($scope, user, $location){
 	$scope.user = user.getName();
 });
-
-
-
 

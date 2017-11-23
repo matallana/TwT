@@ -26,14 +26,14 @@
         </li>
         <li role="separator" class="divider"></li>
         <li>
-            <a  class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span>Registro</a>
+            <a class='buttonMenu _title' data-toggle='collapse' data-parent='#accordion' data-href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span>Registro</a>
         </li>
 
         <li>
-            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario</a>
+            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario</a>
         </li>
         <li>
-            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPIs</a>
+            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPIs</a>
         </li>
 
             <!-- <li>
@@ -90,8 +90,8 @@
         var href = $(this).text();
         switch (href) {
           case 'Registro':
-            $('#base-container').load('component/registro.html', function(data) {
-
+            $("#base-container").load('./component/registro.html', function(data) {
+              console.log('hola');
             });
            
             break;
@@ -120,6 +120,6 @@
     });
   </script>
 
-  
+
 </body>
 </html>

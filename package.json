@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@uirouter/angular": "^1.0.0-rc.0",
+    "@uirouter/angularjs": "^1.0.11",
     "body-parser": "^1.18.2",
     "express-mysql-session": "^1.2.2",
     "lite-server": "^2.3.0",

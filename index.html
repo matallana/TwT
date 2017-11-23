@@ -22,22 +22,34 @@
   <script type="text/javascript" src="js/sweetalert.min.js"></script>
 
   <script type="text/javascript" src="js/exportscsv.js"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="./angular.js"></script>
+	<script src="./angular-route.js"></script>
+	<script src="./angular-locale_es-cl.js"></script>
+  <script src="./script.js"></script>
+  <script src="./angular-ui-router.js"></script>
+  <script src="https://unpkg.com/core-js@2.5.1/client/shim.js"></script>
+  <script src="https://unpkg.com/zone.js@0.6.23/dist/zone.js"></script>
+  <script src="https://unpkg.com/reflect-metadata@0.1.3/Reflect.js"></script>
+  <script src="https://unpkg.com/systemjs@0.19.31/dist/system.js"></script>
+  <script src="https://unpkg.com/typescript@1.8.10/lib/typescript.js"></script>
+  <script src="./config.js"></script>
+  <script>
+    System.import('helloworld').catch(console.error.bind(console)); 
+  </script>
+  
+  <style>.active { color: red; font-weight: bold; }</style>
+  
 	<base href= "/"></base>
-
+  
 
 </head>
 <body>
 	
-	<div data-ng-view id="mainContent"></div>
-
-	<script src="./angular.js"></script>
-	<script src="./angular-route.js"></script>
-	<script src="./angular-locale_es-cl.js"></script>
-	<script src="./script.js"></script>
-
-	
-
+    <my-app>
+        Loading...
+      </my-app>
+        
 </body>
 
 </html>
