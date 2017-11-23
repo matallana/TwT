@@ -181,7 +181,7 @@ app.controller('eleccionCtrl', function($scope){
 });
 
 app.controller('kpiCtrl', function($scope, $location, $html){
-
+	
 });
 
 app.controller('usuarioCtrl', function($scope, user, $location){
