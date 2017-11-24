@@ -2,17 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/simple-sidebar.css">
-    <link rel="stylesheet" href="/css/sweetalert.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src="js/jquery.redirect.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
-    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <style media="screen">
+        
+        .sub-menu {
+          background-color: #949494;
+          width: 250px;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          border-top: solid 1px #abadaf;
+          border-bottom: solid 1px #abadaf;
+        }
   
+        .sub-menu li a {
+          color : rgb(255, 255, 255) !important;
+        }
+  
+      </style>
+
+
 </head>
 
 <body ng-app="main"> 
@@ -26,14 +34,24 @@
         </li>
         <li role="separator" class="divider"></li>
         <li>
-            <a  class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span>Registro</a>
+            <a  class="buttonMenu _title"  data-target="#"><span style="margin-right:10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span>Registro</a>
         </li>
 
         <li>
-            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario</a>
+            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo"><span style="margin-right:10px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <ul class="sub-menu">
+                  <li>
+                    <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Empresas</a>
+                  </li>
+                  <li>
+                    <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Clientes</a>
+                  </li>
+                </ul>
+              </div>
         </li>
         <li>
-            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPIs</a>
+            <a class="buttonMenu _title"  href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPIs</a>
         </li>
 
             <!-- <li>
@@ -54,7 +72,7 @@
         </a>
         <span class="titulo_top">SISTEMA DE GESTIÓN DE KPI's</span>
         <div class="dropdown navbar-brand" style="float:right;">
-          <span style="cursor:pointer; color:rgb(255, 255, 255);" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="glyphicon glyphicon-log-out" style="color:#777;" aria-hidden="true"></span>
+          <span style="cursor:pointer; color:rgb(255, 255, 255);" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="glyphicon glyphicon-log-out"  aria-hidden="true"></span>
           <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu3">
             <li><a class="buton-conf" ng-click="goToLogout()" href="#">Salir</a></li>
           </ul>
@@ -96,13 +114,16 @@
            
             break;
 
-          case 'Usuario':
+          case 'Empresas':
             $('#base-container').load('component/usuario.html', function(data) {
               
-
             });
             break;
-
+          case 'Clientes':
+            $('#base-container').load('component/usuario.html', function(data) {
+              
+            });
+            break;
           case 'KPIs':
             $('#base-container').load('component/kpi.html', function(data) {
 
