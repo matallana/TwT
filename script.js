@@ -146,7 +146,23 @@ app.controller('registroCtrl', function($scope,$location, $http){
 		$location.path('/logout');
 	};
 
+	// $scope.insertarUsuario = function() {
+    //     $http.post(
+	// 		"http://localhost/TwT/server/insertar.php", {
+	// 			'nombreUsuariop': $scope.nombreUsuariop,
+	// 			'apellidoUsuario': $scope.apellidoUsuario
+	// 		}).success(function(data){
+	// 			alert(data);
+	// 			$scope.nombreUsuariop = null;
+	// 			$scope.apellidoUsuario = null;
+
+	// 		});
+
+
+	// }
+
 	$scope.insertarUsuario = function(){
+		var obj = [];
 		
 	
 			// Damos el formato a nuestra data enviado al backend
