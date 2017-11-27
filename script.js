@@ -193,11 +193,6 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 	// }
 
 	$scope.insertarUsuario = function(){
-		var obj = [];
-		
-		for ( i = 1; i < obj.length; i++) {
-			obj.push({ id: i});
-		}
 	
 
 		// Damos el formato a nuestra data enviado al backend

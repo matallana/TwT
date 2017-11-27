@@ -28,37 +28,4 @@ if (!$con){
 	
 }
 
-//$json = '{"nombreUsuariop": alan}';
-//$data1 =json_decode($json);
-//var_dump($data1);
-//$data = $data1->nombreUsuariop;
-
-// $data = $data1['nombreUsuariop'];
-
-//print_r(postdata);
-//print_r(data1);
-//print_r(data);
-
-//$datosclientes = json_decode($json, true);
-
-
-// $nombreUsuario = mysqli_real_escape_string($con, $_POST['nombreUsuario']);
-// $apellidoUsuario = mysqli_real_escape_string($con, $_POST['apellidoUsuario']);
-// $emailUsuario = mysqli_real_escape_string($con, $_POST['emailUsuario']);
-// //$avatarUsuario = mysqli_real_escape_string($con, $_POST['avatarUsuario']);
-// $claveUsuario = mysqli_real_escape_string($con, $_POST['claveUsuario']);
-//$fechaCreacion = mysqli_real_escape_string($con, $_POST['fechaCreacion']);
-//$telefonoMovilUsuario = mysqli_real_escape_string($con, $_POST['telefonoMovilUsuario']); 
-//$telefonoFijoUsuario = mysqli_real_escape_string($con, $_POST['telefonoFijoUsuario']);
-//$user_perfil_idPerfil = mysqli_real_escape_string($con, $_POST['user_perfil_idPerfil']);
-
-
-
-
-
-
-
-
-
-
 ?>
