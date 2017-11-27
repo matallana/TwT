@@ -148,32 +148,41 @@ app.controller('registroCtrl', function($scope,$location, $http){
 
 	$scope.insertarUsuario = function(){
 		
-		$http({
-			url: 'http://localhost/TwT/server/insertar.php',
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			},
-			 data: 'nombreUsuario='+$scope.nombreUsuario+'&apellidoUsuario='+$scope.apellidoUsuario+'&emailUsuario='+$scope.emailUsuario+'&claveUsuario='+$scope.claveUsuario
-			}).then(function(response){
-				alert("El usuario "+$scope.nombreUsuario+" fue registrado");
-			},function(error){
-				 alert("Ocurrio un error!, no pudo ser registrado");
-				 console.error(error);
-		   });
-
-		  
-	};
-   /* $scope.insertarUsuario = function(){
-		$http.post('http://localhost/TwT/server/insertar.php', {'nombreUsuariop1':$scope.nombreUsuariop}).then(function(response){
-			alert("El usuario fue registrado");
-		},function(error){
-			alert("Ocurrio un error!, no pudo ser registrado");
-			console.error(error);
-
-		});
-	};*/
 	
+			// Damos el formato a nuestra data enviado al backend
+			var FormData = {
+				'nombreusuario' : document.formUsuario.nombreUsuario.value,
+				'apellidousuario' : document.formUsuario.apellidoUsuario.value,
+				'emailusuario' : document.formUsuario.emailUsuario.value,
+				'claveusuario' : document.formUsuario.claveUsuario.value,
+				'fecha' : document.formUsuario.fechaCreacion.value,
+				'telfmovil' : document.formUsuario.telefonoMovilUsuario.value,
+				'telffijo' : document.formUsuario.telefonoFijoUsuario.value
+			 };
+			 var method = 'POST';
+			 var url = 'http://localhost/TwT/server/insertar.php';
+			 // ----------------------------------------------------------------
+	
+			 //Ejecutamos el Http, usando las variables previamente definidas,
+			$http({         
+				url: url,
+				method: method,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				 data: FormData 
+				}).
+				then(function(response){
+					console.dir(response) // aqui vez desde la consola como te llegan los datos
+					$scope.objects = response.data
+					alert("El usuario "+$scope.nombreUsuario+" fue registrado");
+					console.log(response);
+				},function(error){
+					 alert("Ocurrio un error!, no pudo ser registrado");
+					 console.error(error);
+				});
+				};        
+			// ---------------------------------------------------------------------	
 });
 
 

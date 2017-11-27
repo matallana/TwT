@@ -16,18 +16,18 @@
                         <label><input type="radio" name="radioFormulario" value="ht"><img src="/imagen/ht.png" alt="Web" height="42" width="42"></label>
                     </div>
                 </div>
-                <label for="fecha1">Fecha Inicial:</label>
-                    <div class='input-group date' id='datepicker'>
-                        <input type='text' class="form-control" id="picker1-input" readonly />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar">
-                            </span>
+                <label for="fechaInicio">Fecha Inicio:</label>
+                <div class='input-group date' id='datepicker'>
+                    <input ng-model= "fechaInicio" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaInicio">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar">
                         </span>
-                    </div>
+                    </span>
+                </div>
                     <br>
-                    <label for="fecha1" class="hide_dp4">Fecha Final:</label>
-                    <div class='input-group date hide_dp4' id='datepicker4'>
-                        <input type='text' class="form-control" id="picker4-input" readonly />
+                    <label for="fechafin">Fecha a comparar:</label>
+                    <div class='input-group date' id='datepicker'>
+                        <input ng-model= "fechaFin" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaFin">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar">
                             </span>
@@ -40,25 +40,25 @@
                 <div class = "form-group" id="grpFb">
                     <form id="formFacebook">
 
-                        <label for="fb_fan">Fans:</label>
+                        <label for="fansFb">Fans:</label>
                         <div class='input-group inputGroupLapiz'>
-                            <input type="number" min="0" class="form-control inputNumero" id="fb_fan">
+                            <input type="number" min="0" class="form-control inputNumero" id="fansFb">
                             <span class="input-group-addon inputGroupAddonLapiz">
                                 <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
                             </span>
                         </div>
                         <br>
-                        <label for="fb_alc">Alcance:</label>
+                        <label for="alcanceFb">Alcance:</label>
                         <div class='input-group inputGroupLapiz'>
-                            <input type="number" min="0" class="form-control inputNumero" id="fb_alc">
+                            <input type="number" min="0" class="form-control inputNumero" id="alcanceFb">
                             <span class="input-group-addon inputGroupAddonLapiz">
                                 <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
                             </span>
                         </div>
                         <br>
-                        <label for="fb_imp">Impresiones:</label>
+                        <label for="impresFb">Impresiones:</label>
                         <div class='input-group inputGroupLapiz'>
-                        <input type="number" min="0" class="form-control inputNumero" id="fb_imp">
+                        <input type="number" min="0" class="form-control inputNumero" id="impresFb">
                         <span class="input-group-addon inputGroupAddonLapiz">
                                 <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
                             </span>
@@ -234,16 +234,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="fechai2">Fecha Inicial:</label>
-                    <div class='input-group date' id='datepickerdesde'>
-                        <input type='text' class="form-control" id="picker2-input" readonly />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar">
+                        <label for="fechaSem1">Fecha Semana 1 :</label>
+                        <div class='input-group date' id='datepicker'>
+                            <input ng-model= "fechaSem1" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaSem1">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar">
+                                </span>
                             </span>
-                        </span>
-                    </div>
+                        </div>
                     <br>
-                    <label for="fechai2">Comparar Con:</label>
+                    <label for="fechaSem2">Comparar Con:</label>
                     <div class='input-group date' id='datepickerhasta'>
                         <input type='text' class="form-control" id="picker3-input" readonly />
                         <span class="input-group-addon">
