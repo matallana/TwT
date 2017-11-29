@@ -2,6 +2,8 @@
 var app = angular.module('main', ['ngRoute']);
 
 
+
+
 //Se configuran las rutas 
 app.config(function($routeProvider, $locationProvider){
 	$routeProvider.when('/',{
@@ -29,6 +31,17 @@ app.config(function($routeProvider, $locationProvider){
 		templateUrl:'./component/dashboard.html',
 		controller: 'dashboardCtrl'
 
+	}).when('/crear', {
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl:'./component/formulariousuario.html',
+		controller: 'dashboardCtrl'
+
 	})
 	.otherwise({
 		template: '404'
@@ -36,6 +49,21 @@ app.config(function($routeProvider, $locationProvider){
 
 	$locationProvider.html5Mode(true);
 });
+
+// script.js
+    // create the module and name it demoApp
+    // var demoApp = angular.module('demoApp', []);
+	
+		// create the controller and inject Angular's $scope
+		app.controller('mainController', function($scope) {
+	
+			// create a message to display in our view
+			$scope.message = 'Hello world!';
+		});
+
+
+
+
 
 //creacion de servicios para login
 app.service('user', function(){
@@ -142,7 +170,12 @@ app.service('usuario',function(){
 */
 
 
-
+app.controller('formulario', function($routeProvider, $locationProvider){
+	$routeProvider.when('/',{
+		templateUrl: './component/formulario.html',
+		controller: 'dashboardCtrl'
+	})
+});
 
 //se crean controladores 
 app.controller('loginCtrl', function($scope,$http, $location, user){
@@ -191,6 +224,10 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 
 
 	// }
+
+    
+  
+	
 
 	$scope.insertarUsuario = function(){
 		var obj = [];

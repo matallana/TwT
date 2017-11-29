@@ -1,0 +1,209 @@
+  
+<div class="col-lg-4" ng-controller = "dashboardCtrl">
+    <div class="panel panel-default" id="panelRegistro">
+        <div class="panel-heading fondo">
+          <span id="tituloCrud">Registro usuario</span>
+        </div>
+
+        <div class="panel-body">
+            <div class = "form-group text-center">
+                <div class = "radio-inline">
+                    <label for ="eleccion"><input  id="eleccion" name= "eleccion" type="radio" ng-model= "eleccion" ng-value="Usuario" checked  ><img src="/imagen/usuario.png" alt="Usuario" height="42" width="42"></label>
+                </div>
+                <div class = "radio-inline">
+                    <label for= "eleccion"><input id="eleccion" name= "eleccion" type="radio" ng-model= "eleccion" value="4" ><img src="/imagen/cliente.png" alt="Cliente" height="42" width="42"></label>
+                </div>
+            </div>
+            
+                <br> 
+            <div ng-hide="eleccion==='4'" class = "form-group" id="usuario">
+                <form name="formUsuario">
+
+                    
+
+                    
+
+                    <label ng-hide="eleccion==='4'"  for="nombreUsuario">Nombre usuario:</label>
+                    <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
+                        <input type="text" placeholder="Soila" focusable min="0" class="form-control inputNumero" id="nombreUsuario" ng-model="nombreUsuario" required>
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+
+                   <label ng-hide="eleccion==='4'" for="apellidoUsuario">Apellido usuario:</label>
+                    <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'> 
+                        <input type="text" placeholder="Cerda" min="0" class="form-control inputNumero" id="apellidoUsuario" ng-model= "apellidoUsuario">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+
+                   <label ng-hide="eleccion==='4'" for="emailUsuario">Email usuario:</label>
+                    <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
+                    <input type="email" placeholder="soila.cerda@yopmail.com" min="0" class="form-control inputNumero" id="emailUsuario" ng-model= "emailUsuario">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+                    <label ng-hide="eleccion==='4'"  for="avatarUsuario">Avatar usuario:</label>
+                    <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
+                        <input type="file" focusable min="0" class="form-control inputNumero" id="avatarUsuario"  ng-model="avatarUsuario">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+                    <label ng-hide="eleccion==='4'" for="claveUsuariop">Contraseña:</label> 
+                    <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
+                            <input type="password" min="6" class="form-control inputNumero" id="claveUsuario" ng-model="claveUsuario" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" required>
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                                </span>
+                            </div>
+                    <br>
+                    <label for="fechaCreacion">Fecha Creación:</label>
+                    <div class='input-group date' id='datepicker'>
+                        <input ng-model= "fechaCreacion" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaCreacion">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar">
+                            </span>
+                        </span>
+                    </div>
+                    <br>
+                    
+                    <label ng-hide="eleccion==='4'" for="telefonoMovilUsuario">Telefono movil:</label>
+                    <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
+                    <input type="tel" placeholder="56977885522" min="0" class="form-control inputNumero" id="telefonoMovilUsuario" ng-model= "telefonoMovilUsuario">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+                   
+                   <label ng-hide="eleccion==='4'" for="telefonoFijiUsuario">Telefono fijo:</label>
+                    <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
+                    <input type="number" placeholder="(2)25425267" min="0" class="form-control inputNumero" id="telefonoFijoUsuario" ng-model= "telefonoFijoUsuario">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+
+                    
+                    
+                    <!--<label ng-hide="eleccion==='4'">Repita contraseña:</label>
+                    <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
+                            <input type="password" min="0" class="form-control inputNumero" >
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                                </span>
+                            </div>-->
+                </form>
+            </div>
+
+            <!--<div ng-show="eleccion==='4'" class = "form-group" id="cliente">
+                    <form id="formCliente">
+
+                        <label for="fechaCreacion">Fecha Actual:</label>
+                        <div class='input-group date' id='datepicker'>
+                            <input ng-model= "DatosCliente.fechaCreacion" type='date' ng-value="{{date| date:'dd/MM/yyyy'}}" date-parser="dd/MM/yyyy" requred  class="form-control" id="fechaCreacion">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar">
+                                </span>
+                            </span>
+                       </div>
+                       <br>
+
+                       <label ng-show="eleccion==='4'" for="nombreCliente">Nombre cliente :</label>
+                        <div ng-show="eleccion==='4'" class='input-group inputGroupLapiz'>
+                            <input type="text" placeholder="Armando" min="0" class="form-control inputNumero" id="nombreCliente"  ng-model= "DatosCliente.nombreCliente">
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+
+                        <label ng-show="eleccion==='4'" for="apellidoPCliente">Apellido paterno cliente:</label>
+                        <div ng-show="eleccion==='4'" class='input-group inputGroupLapiz'>
+                            <input type="text" placeholder="Casas" min="0" class="form-control inputNumero" id="apellidoPCliente" ng-model= "DatosCliente.apellidoPCliente">
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+.
+                        <label ng-show="eleccion==='4'" for="apellidoMCliente">Apellido materno cliente:</label>                            
+                        <div ng-show="eleccion==='4'" class='input-group inputGroupLapiz'>
+
+                            <input type="text" placeholder="Rojas" min="0" class="form-control inputNumero" id="apellidoMCliente" ng-model= "DatosCliente.apellidoMCliente">
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        
+                        <label ng-show="eleccion==='4'" for="emailCliente">Email cliente:</label>
+                        <div ng-show="eleccion==='4'" class='input-group inputGroupLapiz'>
+                        <input type="email" placeholder="Armando.casas@yopmail.com" min="0" class="form-control inputNumero" id="emailCliente" ng-model= "DatosCliente.emailCliente">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        
+                        <label ng-show="eleccion==='4'" for="telefonoMovilCliente">Telefono movil cliente:</label>
+                        <div ng-show="eleccion==='4'" class='input-group inputGroupLapiz'>
+                        <input type="tel" placeholder="+56988997744" min="0" class="form-control inputNumero" id="telefonoMovilCliente" ng-model= "DatosCliente.telefonoMovilCliente">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        
+                        <label ng-show="eleccion==='4'" for="telefonoFijoCliente">Telefono fijo cliente:</label>
+                        <div ng-show="eleccion==='4'" class='input-group inputGroupLapiz'>
+                        <input type="number" placeholder="(2) 26633447" min="0" class="form-control inputNumero" id="telefonoFijoCliente" ng-model= "DatosCliente.telefonoFijoCliente">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        
+                        <label ng-show="eleccion==='4'" for="claveCliente">Contraseña:</label>
+                        <div ng-show="eleccion==='4'" class='input-group inputGroupLapiz'>
+                                <input type="password" min="0" class="form-control inputNumero" id="claveCliente" ng-model= "DatosCliente.claveCliente">
+                                <span class="input-group-addon inputGroupAddonLapiz">
+                                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                                    </span>
+                                </div>
+                        <br>
+                        
+                        <label ng-show="eleccion==='4'">Repita contraseña:</label>
+                        <div ng-show="eleccion==='4'" class='input-group inputGroupLapiz'>
+                                                                <input type="password" min="0" class="form-control inputNumero">
+                                <span class="input-group-addon inputGroupAddonLapiz">
+                                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                                    </span>
+                                </div>
+                    </form>
+            </div>-->
+        </div>
+        <div id= "buttons">
+<button ng-disabled="!formUsuario.$valid" type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarUsuario()" class="btn btn-primary">Guardar</button> 
+</div>
+    </div>
+</div>
+
+
+<div id= "buttons">
+<button id="submit" type="button" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="goToLogout()" class="btn btn-primary">SALIR</button> 
+</div>
+
+<footer>
+    Todos los derechos reservados @brechadigital 2017
+</footer>
+

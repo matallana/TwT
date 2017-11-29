@@ -19,7 +19,7 @@ $telffijo = $dataraw['telffijo'];
 	
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
-$queryinsert = "INSERT INTO usr_usuarioOLD (idUsuario, nombreUsuario, apellidousuario, emaiUsuario, avatartUsuario, claveUsuario, fechaCreacion, telefonoMovil, telefonoFijo, user_perfil_idPerfil) values ('', '$nombre','$apellido','$email', ' ', '$clave', '$fecha', '$telfmovil', '$telffijo', '1') ";  
+$queryinsert = "INSERT INTO usr_usuario (idUsuario, nombreUsuario, apellidousuario, emaiUsuario, avatartUsuario, claveUsuario, fechaCreacion, telefonoMovil, telefonoFijo, user_perfil_idPerfil) values ('', '$nombre','$apellido','$email', ' ', '$clave', '$fecha', '$telfmovil', '$telffijo', '1') ";  
 
 if (!$con){
 	die('No pudo conectarse: ' . mysql_error());
@@ -27,6 +27,8 @@ if (!$con){
 	$result = mysqli_query($con, $queryinsert);
 	
 }
+
+// $queryinsert = "INSERT INTO usr_cliente (idCliente, nombreCliente, apellidoPCliente, apellidoMCliente, emailCliente, telefonoFijoCliente, telefonoMovilCliente, claveCliente, fechaCreacion, user_perfil_idPerfil) values ('', '$nombrecliente','$apellidocliente','$emailcliente', ' $telefonofijocliente','$telefonomovilcliente', '$clavecliente', '$fechacliente', '4') ";  
 
 //$json = '{"nombreUsuariop": alan}';
 //$data1 =json_decode($json);
