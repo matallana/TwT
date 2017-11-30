@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Din';
+    src: url('static/fonts/din-condensed.ttf') format('truetype');
+}
+
+body {
+  background-color: #eee;
+}
+
+#base-container {
+  color : #555;
+}
+
+.sidebar-brand-nuevo {
+  height: 50px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 2.5 !important;
+  font-family: Oswald;
+  color: white;
+  font-size: 20px;
+}
+
+.titulo_top {
+  height : 50px;
+  color : white;
+  font-family: 'Oswald';
+  display: inline-table;
+  padding: 15px 10px;
+}
+
+.goic-color {
+  margin: 0 auto;
+  width : 60%;
+  margin-top: 10%;
+}
+
+
+.center {
+  position: absolute;
+  width : 400px;
+  top : 50%;
+  left : 50%;
+  margin-left : -200px;
+  margin-top : -200px;
+}
+
+.shadow {
+  -webkit-box-shadow: 0px 10px 24px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 24px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 24px -1px rgba(0,0,0,0.75);
+}
+
+.btn-next {
+  width : 100%;
+}
+
+#logo_site {
+  display: block;
+}
+
+.sidebar-brand a {
+  border-bottom: none !important;
+}
+
+.white {
+  background-color: white;
+  border-top: none;
+  text-align: center;
+}
+
+.heading-white {
+  background-color: white !important;
+  font-family: 'Oswald';
+}
+
+._title {
+  font-family: 'Oswald';
+  font-size: 16px;
+  color : #777;
+}
+
+.btn-send {
+  background-color: #4470b3;
+  color : white;
+  font-family: 'Oswald';
+  font-size: 16px;
+}
