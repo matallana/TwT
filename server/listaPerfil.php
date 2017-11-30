@@ -6,30 +6,30 @@ header("Access-Control-Allow-Methods: PUT, GET, POST");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 //se conecta a BDD
-// $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
+$con = mysqli_connect('localhost', 'root', '', 'desarrollo');
 
 //Se recuperan los registros de la tabloa en BDD
-// $queryPerfil = "SELECT * FROM `usr_perfil`";
+$queryPerfil = "SELECT * FROM `usr_perfil`";
 
-// $resultado = mysqli_query($con, $queryPerfil);
 
-// $resultado = $con->query("SELECT * FROM usr_perfil");
+$resultado = $con->query("SELECT * FROM usr_perfil");
 
 // Se crea el array que almacenara los datos
-$data = [
-    Array('id' => 1, 'perfil' => 'admin'),
+$data = array();
+
+// $data = [
+//     Array('id' => 1, 'perfil' => 'admin'),
+//     Array('id' => 2, 'perfil' => 'adminCM'),
+//     Array('id' => 3, 'perfil' => 'CM')
     
 
-];
+// ];
 
-//Se iteran los registros y se guardan en el array
-// while ($row = $resultado->mysql_fetch_assoc($datos)){
-//     $datos[] = $row;
-// }
+// Se iteran los registros y se guardan en el array
+$data = mysqli_fetch_all ($resultado, MYSQLI_ASSOC);
 
-if(isset($_POST['name'])) {
-	array_push($data, Array('id' => 3, 'name' => $_POST['name']));
-}
+
+
 
 //Se transforma a formato Json
 // echo json_encode($datos);
