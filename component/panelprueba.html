@@ -23,7 +23,7 @@
 
 </head>
 
-<body ng-app="main"> 
+<body ng-app="main" ng-controller="panelCtrl"> 
   <div id="wrapper" >
 
   <div id="sidebar-wrapper">
@@ -34,6 +34,7 @@
         </li>
         <li role="separator" class="divider"></li>
         <li>
+
             <a  class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo"><span style="margin-right:10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span>Administracion<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam> </a>
             <div id="collapseTwo" class="panel-collapse collapse">
                 <ul class="sub-menu">
@@ -55,7 +56,7 @@
                             <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Agregar</a>
                           </li>
                           <li>
-                            <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
+                            <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar clientes</a>
                           </li>
                         </ul>
                       </div>
@@ -65,10 +66,10 @@
                       <div id="collapseFive" class="panel-collapse collapse">
                           <ul class="sub-menu">
                             <li>
-                              <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Crear</a>
+                              <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true" ng-click="showModal()" ></span>Crear</a>
                             </li>
                             <li>
-                              <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
+                              <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar usuarios</a>
                             </li>
                           </ul>
                         </div>
@@ -78,7 +79,7 @@
         </li>
 
         <li>
-            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseSix"><span style="margin-right:10px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
+            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseSix"><span style="margin-right:10px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>Empresass<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
             <div id="collapseSix" class="panel-collapse collapse">
                 <ul class="sub-menu">
                   <li>
@@ -133,8 +134,9 @@
 
 
   </div>
-  <script>
-    $("#menu-toggle").click(function(e) {
+  
+<script>
+  $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
@@ -147,7 +149,13 @@
     $('.buttonMenu').click(function(e) {
         var href = $(this).text();
         switch (href) {
-          case 'Registro':
+
+          case 'Perfiles':
+            $('#base-container').load('component/perfil.html', function(data) {
+              
+            });
+            break;
+          case 'Crear':
             $('#base-container').load('component/registro.html', function(data) {
 
             });
@@ -159,7 +167,7 @@
               
             });
             break;
-          case 'Clientes':
+          case 'Visualizar clientes':
             $('#base-container').load('component/usuario.html', function(data) {
               
             });
@@ -169,18 +177,9 @@
 
             });
             break;
-
-           
-
-        /*  case 'Gráficos':
-            $('#base-container').load('static/modulos/grafico.html', function(data) {
-
-            })
-            break; */
         }
     });
-  </script>
+</script>
 
-  
 </body>
 </html>

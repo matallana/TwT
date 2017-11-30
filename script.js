@@ -49,6 +49,26 @@ app.config(function($routeProvider, $locationProvider){
 		},
 		templateUrl: './component/kpi.html',
 		controller: 'kpiCtrl'
+	}).when('/panelprueba',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/panelprueba.html',
+		controller: 'panelCtrl'
+	}).when('/perfil',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/perfil.html',
+		controller: 'listaPerfilCtrl'
 	})
 	.otherwise({
 		template: '404'
@@ -199,8 +219,27 @@ app.controller('registroCtrl', function($scope,$location, $http){
 				});
 				};        
 			// ---------------------------------------------------------------------	
+	$scope.showModal = function(){
+		$scope.nuevoMiembro = {};
+		var modalInstance = $modal.open({
+			templateUrl: 'component/registro.html'
+		})
+	}
+
 });
 
+// app.controller('listaPerfilCtrl', function ($scope, $http){
+
+// 	$scope.objects = [];
+	
+// 			$http({
+// 				method: 'GET',
+// 				url: 'http://localhost/TwT/server/listaPerfil.php'
+// 				}).then(function(response){
+// 				console.dir(response) 
+// 				$scope.objects = response.datos
+// 			})
+// });
 
 app.controller('kpiCtrl', function($scope, $location, $html){
 	

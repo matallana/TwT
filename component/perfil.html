@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+    <title>DEMO APP</title>
+
+  </head>
+  <body>
+
+  	<div data-ng-app="app" data-ng-controller="ctrl">
+		<ul>
+ 			<li data-ng-repeat="obj in objects">
+				{{obj.name}}
+			</li>
+		</ul>
+
+		<form data-ng-submit="submit()">
+			<input data-ng-model="name" name="name" />
+			<input type="submit" />
+		<form/>
+
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+	</script>
+
+	<script>
+	var app= angular.module('app', [])
+	app.controller('ctrl', function($scope, $http, $httpParamSerializer){
+		$scope.objects = []
+        $scope.name = ''
+        
+		$scope.submit = function(){
+			var config = {
+			    }
+			$scope.objects.push({name: this.name})
+			$http({
+				method: 'http://localhost/TwT/server/listaPerfil.php',
+				url: 'api.php',
+				data: $httpParamSerializer({name: this.name}),
+				headers : {
+					'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+				}
+			}).then(function(response){
+				console.dir(response) // aqui vez desde la consola como te llegan los datos
+			})
+			$scope.name = ''
+		}
+		$http({
+			method: 'get',
+			url: 'http://localhost:3000/server/listaPerfil.php'
+		}).then(function(response){
+			console.dir(response) // aqui vez desde la consola como te llegan los datos
+			$scope.objects = response.data
+        })
+        
+	})
+	</script>
+
+  </body>
+</html>
+
+
+<!-- <script type="text/javascript">
+
+var app2 = angular.module('datosApp',[])
+    app2.controller('listaPerfilCtrl', function ($scope, $http){
+        
+            $scope.objects = [];
+            
+                    $http({
+                        method: 'GET',
+                        url: 'http://localhost/TwT/server/listaPerfil.php'
+                        }).then(function(response){
+                        console.dir(response) 
+                        $scope.objects = response.datos
+                    })
+        });
+</script> -->
