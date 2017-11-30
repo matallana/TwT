@@ -1,3 +1,5 @@
+
+
 //se crea el modulo app
 var app = angular.module('main', ['ngRoute']);
 
@@ -64,6 +66,46 @@ app.config(function($routeProvider, $locationProvider){
 		templateUrl:'./component/formularioEmpresa.html',
 		controller: 'dashboardCtrl'
 
+	}).when('/perfil',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/perfil.html',
+		controller: 'dashboardCtrl'
+	}).when('/visualizarE',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/empresas.html',
+		controller: 'dashboardCtrl'
+	}).when('/visualizarC',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/clientes.html',
+		controller: 'dashboardCtrl'
+	}).when('/visualizarU',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/usuarios.html',
+		controller: 'dashboardCtrl'
 	})
 	.otherwise({
 		template: '404'
@@ -71,6 +113,9 @@ app.config(function($routeProvider, $locationProvider){
 
 	$locationProvider.html5Mode(true);
 });
+
+
+
 
 // script.js
     // create the module and name it demoApp
@@ -280,7 +325,49 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 
 
 
-});			
+
+
+});		
+
+app.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
+	$http({
+	 method: 'get',
+	 url: 'http://localhost/TwT/server/listaPerfil.php'
+	}).then(function successCallback(response) {
+	 // Store response data
+	 $scope.users = response.data;
+	});
+   }]);
+
+   app.controller('empresasCtrl', ['$scope', '$http', function ($scope, $http) {
+	$http({
+	 method: 'get',
+	 url: 'http://localhost/TwT/server/listaEmpresa.php'
+	}).then(function successCallback(response) {
+	 // Store response data
+	 $scope.users = response.data;
+	});
+   }]);
+
+   app.controller('clientesCtrl', ['$scope', '$http', function ($scope, $http) {
+	$http({
+	 method: 'get',
+	 url: 'http://localhost/TwT/server/listClientes.php'
+	}).then(function successCallback(response) {
+	 // Store response data
+	 $scope.users = response.data;
+	});
+   }]);
+
+   app.controller('usuarioCtrl', ['$scope', '$http', function ($scope, $http) {
+	$http({
+	 method: 'get',
+	 url: 'http://localhost/TwT/server/listaUsuarios.php'
+	}).then(function successCallback(response) {
+	 // Store response data
+	 $scope.users = response.data;
+	});
+   }]);
 	
 
 app.controller('insertarCtrl', function($scope, $location, $http){
