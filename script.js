@@ -42,6 +42,28 @@ app.config(function($routeProvider, $locationProvider){
 		templateUrl:'./component/formulariousuario.html',
 		controller: 'dashboardCtrl'
 
+	}).when('/agregar', {
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl:'./component/formularioCliente.html',
+		controller: 'dashboardCtrl'
+
+	}).when('/agregarE', {
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl:'./component/formularioEmpresa.html',
+		controller: 'dashboardCtrl'
+
 	})
 	.otherwise({
 		template: '404'
@@ -110,73 +132,6 @@ app.service('user', function(){
 	}
 })
 
-/*
-//crear servicio agregarUsuario
-
-app.service('usuario',function(){
-	var nombreUsuariop;
-	var claveUsuariop,
-	var fechaCreacion;
-	var createin = false;
-
-	this.setNombreUsuariop = function(usuarioNombreU){
-		nombreUsuariop = usuarioNombreU;
-	};
-
-	this.getNombreUsuariop = function(){
-		return nombreUsuariop;
-	};
-	this.setClaveUsuariop = function(usuarioClaveU){
-		claveUsuariop = usuarioClaveU;
-	};
-	this.getClaveUsuariop = function(){
-		return claveUsuariop;
-	};
-	this.setFechaCreacion = function(usuarioFechac){
-		fechaCreacion = usuarioFechac;
-	};
-
-	this.getFechaCreacion = function(){
-		return fechaCreacion;
-	};
-	this.agregaUsuarioOk = function(){
-		if(!!localStorage.getItem('dashboard')){
-			createin = true;
-			var datos = JSON.parse(localStorage.getItem('dashboard'));
-			nombreUsuariop = datos.nombreUsuariop;
-			claveUsuariop = datos.claveUsuariop;
-			fechaCreacion = datos.fechaCreacion;
-		}
-		return createiin;
-	};
-	this.saveDatos = function(datos){
-		nombreUsuariop = datos.nombreUsuariop;
-		claveUsuariop = datos.claveUsuariop;
-		fechaCreacion = datos.fechaCreacion;
-		createin = true;
-		localStorage.setItem('dashboard', JSON.stringify({
-			nombreUsuariop: nombreUsuariop,
-			claveUsuariop: claveUsuariop,
-			fechaCreacion: fechaCreacion
-		}));
-	};
-	this.cleatDatos = function(){
-		localStorage.removeItem('dashboard');
-		nombreUsuariop = "";
-		claveUsuariop = "";
-		fechaCreacion = ""; 
-	}
-})
-*/
-
-
-app.controller('formulario', function($routeProvider, $locationProvider){
-	$routeProvider.when('/',{
-		templateUrl: './component/formulario.html',
-		controller: 'dashboardCtrl'
-	})
-});
-
 //se crean controladores 
 app.controller('loginCtrl', function($scope,$http, $location, user){
 	$scope.login= function(){
@@ -209,26 +164,8 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 	$scope.goToLogout = function(){
 		$location.path('/logout');
 	};
-
-	// $scope.insertarUsuario = function() {
-    //     $http.post(
-	// 		"http://localhost/TwT/server/insertar.php", {
-	// 			'nombreUsuariop': $scope.nombreUsuariop,
-	// 			'apellidoUsuario': $scope.apellidoUsuario
-	// 		}).success(function(data){
-	// 			alert(data);
-	// 			$scope.nombreUsuariop = null;
-	// 			$scope.apellidoUsuario = null;
-
-	// 		});
-
-
-	// }
-
-    
-  
 	
-
+	//Funcion de insertar Usuario
 	$scope.insertarUsuario = function(){
 	
 
@@ -241,7 +178,7 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 			'fecha' : document.formUsuario.fechaCreacion.value,
 			'telfmovil' : document.formUsuario.telefonoMovilUsuario.value,
 			'telffijo' : document.formUsuario.telefonoFijoUsuario.value
-		  };
+		};
 		  var method = 'POST';
 		  var url = 'http://localhost/TwT/server/insertar.php';
 		  // ----------------------------------------------------------------
@@ -254,36 +191,96 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 				'Content-Type': 'application/x-www-form-urlencoded'
 			},
 			 data:   FormData 
-			}).
-			then(function(response){
+		}).
+		then(function(response){
 				console.dir(response) // aqui vez desde la consola como te llegan los datos
 				$scope.objects = response.data
 				alert("El usuario "+$scope.nombreUsuario+" fue registrado");
 				console.log(response);
-			},function(error){
+		},function(error){
 				 alert("Ocurrio un error!, no pudo ser registrado");
 				 console.error(error);
-			});
-			};
-		});			
-		// ---------------------------------------------------------------------
-			// then(function(response){
-			// 	alert("El usuario "+$scope.nombreUsuario+" fue registrado");
-			// 	console.log(response);
-			// },function(error){
-			// 	 alert("Ocurrio un error!, no pudo ser registrado");
-			// 	 console.error(error);
-			// });
-	
-   /* $scope.insertarUsuario = function(){
-		$http.post('http://localhost/TwT/server/insertar.php', {'nombreUsuariop1':$scope.nombreUsuariop}).then(function(response){
-			alert("El usuario fue registrado");
-		},function(error){
-			alert("Ocurrio un error!, no pudo ser registrado");
-			console.error(error);
-
 		});
-	};*/
+	};
+// ---------------------------------------------------------------------
+
+	//Funcion de insertar Cliente
+	$scope.insertarCliente = function(){
+			
+		
+				// Damos el formato a nuestra data enviado al backend
+		var FormData = {
+					'nombreCliente' : document.formCliente.nombreCliente.value,
+					'apellidoPCliente' : document.formCliente.apellidoPCliente.value,
+					'apellidoMCliente' : document.formCliente.apellidoMCliente.value,
+					'emailCliente' : document.formCliente.emailCliente.value,
+					'telfmovilCliente' : document.formCliente.telefonoMovilCliente.value,
+					'telffijoCliente' : document.formCliente.telefonoFijoCliente.value,
+					'claveCliente' : document.formCliente.claveCliente.value,
+					'fechaC' : document.formCliente.fechaCreacionC.value
+		};
+			var method = 'POST';
+			var url = 'http://localhost/TwT/server/insertarCliente.php';
+				  // ----------------------------------------------------------------
+		
+				  //Ejecutamos el Http, usando las variables previamente definidas,
+		$http({			
+					url: url,
+					method: method,
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded'
+					},
+					 data:   FormData 
+		}).
+		then(function(response){
+						console.dir(response) // aqui vez desde la consola como te llegan los datos
+						$scope.objects = response.data
+						alert("El usuario "+$scope.nombreCliente+" perteneciente a la empresa "+$scope.nombreEmpresa +" fue registrado");
+						console.log(response);
+		},function(error){
+						 alert("Ocurrio un error!, no pudo ser registrado");
+						 console.error(error);
+		});
+	};	
+// ---------------------------------------------------------------------
+
+	//Funcion insertar Empresa
+	$scope.insertarEmpresa = function(){
+		
+	
+			// Damos el formato a nuestra data enviado al backend
+	var FormData = {
+				'nombreEmpresa' : document.formEmpresa.nombreEmpresa.value,
+				'fechaE' : document.formEmpresa.fechaCreacionE.value
+	};
+		var method = 'POST';
+		var url = 'http://localhost/TwT/server/insertarEmpresa.php';
+			  // ----------------------------------------------------------------
+	
+			  //Ejecutamos el Http, usando las variables previamente definidas,
+	$http({			
+				url: url,
+				method: method,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				 data:   FormData 
+	}).
+	then(function(response){
+					console.dir(response) // aqui vez desde la consola como te llegan los datos
+					$scope.objects = response.data
+					alert("La Empresa "+$scope.nombreEmpresa+" fue registrada");
+					console.log(response);
+	},function(error){
+					 alert("Ocurrio un error!, no pudo ser registrada");
+					 console.error(error);
+	});
+};	
+
+
+
+
+});			
 	
 
 app.controller('insertarCtrl', function($scope, $location, $http){
