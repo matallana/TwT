@@ -16,10 +16,11 @@ $clave = $dataraw['claveusuario'];
 $fecha = $dataraw['fecha'];
 $telfmovil = $dataraw['telfmovil'];
 $telffijo = $dataraw['telffijo'];
+$selectPerfil = $dataraw['selectPerfil'];
 	
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
-$queryinsert = "INSERT INTO usr_usuario (idUsuario, nombreUsuario, apellidoUsuario, emaiUsuario, avatartUsuario, claveUsuario, fechaCreacion, telefonoMovil, telefonoFijo, user_perfil_idPerfil) values ('', '$nombre','$apellido','$email', ' ', '$clave', '$fecha', '$telfmovil', '$telffijo', '1') ";  
+$queryinsert = "INSERT INTO usr_usuario (idUsuario, nombreUsuario, apellidoUsuario, emaiUsuario, avatartUsuario, claveUsuario, fechaCreacion, telefonoMovil, telefonoFijo, user_perfil_idPerfil) values ('', '$nombre','$apellido','$email', ' ', '$clave', '$fecha', '$telfmovil', '$telffijo', '$selectPerfil') ";  
 
 if (!$con){
 	die('No pudo conectarse: ' . mysql_error());

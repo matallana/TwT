@@ -211,15 +211,15 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 	};
 
 	//Se traen las variables de perfiles para hacer combo-box
-	$scope.perfiles = function($scope, $http){
-		$http({
-			method: 'get',
-			url: 'http://localhost/TwT/server/listaPerfil.php'
-		   }).then(function successCallback(response) {
-			// Store response data
-			$scope.selectPerfil = response.data;
-		   });
-	}
+	// $scope.perfiles = function(){
+	// 	$http({
+	// 		method: 'get',
+	// 		url: 'http://localhost/TwT/server/listaPerfil.php'
+	// 	   }).then(function successCallback(response) {
+	// 		// Store response data
+	// 		$scope.selectPerfil = response.data;
+	// 	   });
+	// }
 
 //-------------------------------------------------------------------------------------------------	
 	//Funcion de insertar Usuario
@@ -234,7 +234,8 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 			'claveusuario' : document.formUsuario.claveUsuario.value,
 			'fecha' : document.formUsuario.fechaCreacion.value,
 			'telfmovil' : document.formUsuario.telefonoMovilUsuario.value,
-			'telffijo' : document.formUsuario.telefonoFijoUsuario.value
+			'telffijo' : document.formUsuario.telefonoFijoUsuario.value,
+			'selectPerfil' : document.formUsuario.eleccion.value
 		};
 		  var method = 'POST';
 		  var url = 'http://localhost/TwT/server/insertar.php';
@@ -275,6 +276,7 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 					'telffijoCliente' : document.formCliente.telefonoFijoCliente.value,
 					'claveCliente' : document.formCliente.claveCliente.value,
 					'fechaC' : document.formCliente.fechaCreacionC.value
+					
 		};
 			var method = 'POST';
 			var url = 'http://localhost/TwT/server/insertarCliente.php';

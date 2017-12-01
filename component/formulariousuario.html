@@ -142,19 +142,16 @@
             </div>
     
             <div class="panel-body">
-                <div class = "form-group text-center">
-                    <div class = "radio-inline">
-                        
-                    </div>
-                    <!-- <select ng-model="app" ng-options="values for values in selectPerfil" id="selectPerfil" class="form-control">
-                            
-                          </select> -->
-                </div>
-                
+               
                     <br> 
                 <div  class = "form-group" id="usuario">
                     <form name="formUsuario">
-
+                            <label>Seleccion de Perfil</label>
+                            <select name="eleccion" id="eleccion" ng-model="eleccion" class="form-control" ng-controller="userCtrl">
+                                    <option value="">Seleccionar Perfil</option>
+                                    <option ng-repeat="perfil in users" value="{{perfil.idPerfil}}">{{perfil.nombrePerfil}}</option>
+                            </select>
+                            <br>
                         <label for="nombreUsuario">Nombre usuario:</label>
                         <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
                             <input type="text" placeholder="Soila" focusable min="0" class="form-control inputNumero" id="nombreUsuario" ng-model="nombreUsuario" required>
