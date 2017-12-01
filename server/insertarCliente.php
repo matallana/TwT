@@ -9,7 +9,6 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 
 $postdata = file_get_contents('php://input');
 $dataraw = json_decode($postdata, true);
-$nombreE = $dataraw['nombreEmpresa'];
 $nombreC = $dataraw['nombreCliente'];
 $apellidoPC = $dataraw['apellidoPCliente'];
 $apellidoMC = $dataraw['apellidoMCliente'];
@@ -22,7 +21,7 @@ $fechaC = $dataraw['fechaC'];
 	
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
-$queryinsertcliente = "INSERT INTO usr_cliente (idCliente, nombreEmpresa, nombreCliente, apellidoPCliente, apellidoMCliente, emailCliente,  telefonoMovilCliente, telefonoFijoCliente, claveCliente, fechaCreacion, user_perfil_idPerfil) values ('', '$nombreE', '$nombreC','$apellidoPC','$apellidoMC','$emailC' ,'$telfmovilC', '$telffijoC', '$claveC', '$fechaC','4') ";  
+$queryinsertcliente = "INSERT INTO usr_cliente (idCliente, nombreCliente, apellidoPCliente, apellidoMCliente, emailCliente,  telefonoMovilCliente, telefonoFijoCliente, claveCliente, fechaCreacion, user_perfil_idPerfil, empresa_idempresa) values ('','$nombreC','$apellidoPC','$apellidoMC','$emailC' ,'$telfmovilC', '$telffijoC', '$claveC', '$fechaC','4','1') ";  
 
 if (!$con){
 	die('No pudo conectarse: ' . mysql_error());

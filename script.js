@@ -209,7 +209,19 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 	$scope.goToLogout = function(){
 		$location.path('/logout');
 	};
-	
+
+	//Se traen las variables de perfiles para hacer combo-box
+	$scope.perfiles = function($scope, $http){
+		$http({
+			method: 'get',
+			url: 'http://localhost/TwT/server/listaPerfil.php'
+		   }).then(function successCallback(response) {
+			// Store response data
+			$scope.selectPerfil = response.data;
+		   });
+	}
+
+//-------------------------------------------------------------------------------------------------	
 	//Funcion de insertar Usuario
 	$scope.insertarUsuario = function(){
 	
@@ -321,12 +333,6 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 					 console.error(error);
 	});
 };	
-
-
-
-
-
-
 });		
 
 app.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
@@ -337,9 +343,9 @@ app.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
 	 // Store response data
 	 $scope.users = response.data;
 	});
-   }]);
+}]);
 
-   app.controller('empresasCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('empresasCtrl', ['$scope', '$http', function ($scope, $http) {
 	$http({
 	 method: 'get',
 	 url: 'http://localhost/TwT/server/listaEmpresa.php'
@@ -347,19 +353,19 @@ app.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
 	 // Store response data
 	 $scope.users = response.data;
 	});
-   }]);
+}]);
 
-   app.controller('clientesCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('clientesCtrl', ['$scope', '$http', function ($scope, $http) {
 	$http({
 	 method: 'get',
-	 url: 'http://localhost/TwT/server/listClientes.php'
+	 url: 'http://localhost/TwT/server/listaClientes.php'
 	}).then(function successCallback(response) {
 	 // Store response data
 	 $scope.users = response.data;
 	});
-   }]);
+}]);
 
-   app.controller('usuarioCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller('usuariosCtrl', ['$scope', '$http', function ($scope, $http) {
 	$http({
 	 method: 'get',
 	 url: 'http://localhost/TwT/server/listaUsuarios.php'
@@ -367,17 +373,9 @@ app.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
 	 // Store response data
 	 $scope.users = response.data;
 	});
-   }]);
+}]);
 	
 
-app.controller('insertarCtrl', function($scope, $location, $http){
-
-})
-
-
-app.controller('usuarioCtrl', function($scope, user, $location){
-	$scope.user = user.getName();
-});
 
 
 

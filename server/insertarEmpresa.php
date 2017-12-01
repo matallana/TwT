@@ -15,7 +15,7 @@ $fechaE = $dataraw['fechaE'];
 	
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
-$queryinsertemp = "INSERT INTO empresa (idEmpresa, nombreEmpresa, fechaCreacion) values ('', '$nombreE', '$fechaE') ";  
+$queryinsertemp = "INSERT INTO empresa (idEmpresa, nombreEmpresa, fechaCreacionE) values ('', '$nombreE', '$fechaE') ";  
 
 if (!$con){
 	die('No pudo conectarse: ' . mysql_error());

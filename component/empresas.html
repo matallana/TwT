@@ -40,7 +40,7 @@
                       <div id="collapseTree" class="panel-collapse collapse">
                           <ul class="sub-menu">
                             <li>
-                              <a class="buttonMenu _title" data-target="#" ng-href="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Perfiles</a>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/perfil"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Perfiles</a>
                             </li>
                           </ul>
                         </div>
@@ -50,10 +50,10 @@
                       <div id="collapseSeven" class="panel-collapse collapse">
                           <ul class="sub-menu">
                             <li>
-                              <a class="buttonMenu _title" data-target="#" ng-href="/agregarE"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true" ng-href="/AgregarE"></span>Agregar Nueva</a>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/agregarE"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Agregar Nueva</a>
                             </li>
                             <li>
-                              <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
+                              <a class="buttonMenu _title" data-target="#" ><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
                             </li>
                           </ul>
                         </div>
@@ -66,7 +66,7 @@
                               <a class="buttonMenu _title" data-target="#" ng-href="/agregar"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Agregar</a>
                             </li>
                             <li>
-                              <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/visualizarC"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
                             </li>
                           </ul>
                         </div>
@@ -79,7 +79,7 @@
                                 <a class="buttonMenu _title" data-target="#" ng-href="/crear"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Crear</a>
                               </li>
                               <li>
-                                <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
+                                <a class="buttonMenu _title" data-target="#" ng-href="/visualizarU"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
                               </li>
                             </ul>
                           </div>
@@ -140,22 +140,23 @@
             
       <div ng-controller="empresasCtrl">
      
-      <table >
+      <table id="table-datos" class="table">
+          <thead>
+            <tr class="bg-success">
+            <th>ID</th>
+            <th>Nombre de la Empresa</th>
+            <th>Fecha de creacion</th>
      
-      <tr>
-      <th>ID</th>
-      <th>Nombre de la Empresa</th>
-      <th>Fecha de creacion</th>
-     
-      </tr>
-      
+            </tr>
+          </thead>
+          <tbody>
       <!-- Display records -->
-      <tr ng-repeat="user in users">
-      <td>{{user.idEmpresa}}</td>
-      <td>{{user.nombreEmpresa}}</td>
-      <td>{{user.fechaCreacionE}}</td>
-      </tr>
-     
+            <tr ng-repeat="user in users">
+            <td>{{user.idEmpresa}}</td>
+            <td>{{user.nombreEmpresa}}</td>
+            <td>{{user.fechaCreacionE}}</td>
+            </tr>
+        </tbody>
       </table>
       </div>
     </div>
