@@ -9,6 +9,9 @@ var app = angular.module('main', ['ngRoute']);
 //Se configuran las rutas 
 app.config(function($routeProvider, $locationProvider){
 	$routeProvider.when('/',{
+		templateUrl: './component/preload.html',
+		controller: 'loginCtrl'
+	}).when('/login',{
 		templateUrl: './component/login.html',
 		controller: 'loginCtrl'
 	}).when('/logout', {
@@ -18,10 +21,6 @@ app.config(function($routeProvider, $locationProvider){
 				$location.path('/login');
 			}
 		}
-	})
-	.when('/login', {
-		templateUrl: './component/login.html',
-		controller: 'loginCtrl'
 	}).when('/dashboard', {
 		resolve: {
 		    check: function($location, user){
@@ -136,6 +135,7 @@ app.config(function($routeProvider, $locationProvider){
 app.service('user', function(){
 	var username;
 	var loggedin = false;
+	var permisses;
 	var id;
 
 	this.getName = function(){
@@ -377,7 +377,6 @@ app.controller('usuariosCtrl', ['$scope', '$http', function ($scope, $http) {
 	});
 }]);
 	
-
 
 
 
