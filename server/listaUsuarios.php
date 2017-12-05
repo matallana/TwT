@@ -34,19 +34,19 @@ $data = array();
 // Se iteran los registros y se guardan en el array
 $data = mysqli_fetch_all ($resultado, MYSQLI_ASSOC);
 
-function utf8ize($d) { 
-    if (is_array($d)) { 
-        foreach ($d as $k => $v) { 
-            $d[$k] = utf8ize($v); 
-        } 
-    } else 
-    if (is_string ($d)) { 
-        return utf8_encode($d); 
-    } return $d; 
-}
+// function utf8ize($d) { 
+//     if (is_array($d)) { 
+//         foreach ($d as $k => $v) { 
+//             $d[$k] = utf8ize($v); 
+//         } 
+//     } else 
+//     if (is_string ($d)) { 
+//         return utf8_encode($d); 
+//     } return $d; 
+// }
 
 
 //Se transforma a formato Json
 // echo json_encode($datos); 
-echo json_encode(utf8ize($data));
+echo json_encode($data);
 ?> 
