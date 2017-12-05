@@ -24,7 +24,7 @@ $publicacionesFb = $dataraw['publicacionesFb'];
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
 $queryinsert = "INSERT INTO guarda_datos_general (idGuardaDatosGeneral, seguidores, alcance, impresiones, interacciones, publicaciones, nombreTipoMedio, fechaInicio, fechaFinal) 
-values ('', '$fansFb','$alcanceFb','$impresionesFb', '$interaccionesFb', '$publicacionesFb', '', '', '', '', '', '', '', '', '', '', '', 'Red Social', '$fechaIngreso', '$fechaTermino') ";  
+values ('', '$fansFb','$alcanceFb','$impresionesFb', '$interaccionesFb', '$publicacionesFb', 'Red Social', '$fechaIngreso', '$fechaTermino') ";  
 
 if (!$con){
 	die('No pudo conectarse: ' . mysql_error());

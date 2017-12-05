@@ -11,8 +11,8 @@ $postdata = file_get_contents('php://input');
 $dataraw = json_decode($postdata, true);
 
 //kpi fecha....................................................
-$fechaIngresot = $dataraw['fechaIngresot'];
-$fechaTerminot = $dataraw['fechaTerminot'];
+$fechaIngreso = $dataraw['fechaIngreso'];
+$fechaTermino = $dataraw['fechaTermino'];
 
 // //kpi tweeter...................................................
 $followersTw = $dataraw['followersTw'];
@@ -21,13 +21,13 @@ $impressionsTw = $dataraw['impressionsTw'];
 $contribuidoresTw = $dataraw['contribuidoresTw'];
 $generadosTw = $dataraw['generadosTw'];
 $retweetsTw = $dataraw['retweetsTw'];
-$repilesTw = $dataraw['repilesTw'];
+$repliesTw = $dataraw['repliesTw'];
 $mentionsTw = $dataraw['mentionsTw'];
 
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
-$queryinsert = "INSERT INTO guarda_datos_general (idGuardaDatosGeneral, followers, reach, impressions, tweettGenerados, retweets, respuestas, menciones, nombreTipoMedio, fechaInicio, fechaFinal) 
-values ('', '','','', '', '', '$followersTw', '$reachTw', '$impressionsTw', '$contribuidoresTw', '$generadosTw', '$retweetsTw', '$repilesTw', '$mentionsTw', '', '', '', 'Red Social', '$fechaIngresot', '$fechaTerminot') ";  
+$queryinsert = "INSERT INTO guarda_datos_general (idGuardaDatosGeneral, followers, reach, impressions, contribuidores, twettGenerados, retweets, respuestas, menciones, nombreTipoMedio, fechaInicio, fechaFinal) 
+values ('', '$followersTw', '$reachTw', '$impressionsTw', '$contribuidoresTw', '$generadosTw', '$retweetsTw', '$repliesTw', '$mentionsTw', 'Red Social', '$fechaIngreso', '$fechaTermino') ";  
 
 
 if (!$con){

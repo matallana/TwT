@@ -235,20 +235,20 @@
                 
 
                 <div ng-show="seleccionRd==='2'" class = "form-group" id="twitter">
-                    <form id="formTwitter">
+                    <form name="formTwitter">
                             
-                            <label for="fechaIngresot">Fecha ingreso:</label>
+                            <label for="fechaIngreso">Fecha ingreso:</label>
                             <div class='input-group date' id='datepicker'>
-                                <input ng-model= "fechaIngresot" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaIngresot">
+                                <input ng-model= "fechaIngreso" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaIngreso">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                                 </span>
                             </div>
                                 <br>
-                                <label for="fechaTerminot">Fecha termino:</label>
+                                <label for="fechaTermino">Fecha termino:</label>
                                 <div class='input-group date' id='datepicker'>
-                                    <input ng-model= "fechaTerminot" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaTerminot">
+                                    <input ng-model= "fechaTermino" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaTermino">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar">
                                         </span>
@@ -322,8 +322,10 @@
                             </div>
                             <br>
                             <br>
-                            <button  ng-click="insertarKpitw()" type="submit" style="width:100%; background:#e20514; border-color:#e20514;"  class="btn btn-primary">Guardar</button>
                         </form>
+                        <div id= "buttons">
+                                <button  type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarKpitw()" class="btn btn-primary">Guardar</button> 
+                    </div>
                 </div>
                 <div ng-show="seleccionRd==='3'" class = "form-group" id="web">
                         <form name="formWeb">

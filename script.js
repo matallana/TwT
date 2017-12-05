@@ -393,11 +393,15 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 	};
 
 	$scope.insertarKpitw = function(){
-		console.log($scope.seleccionRd);
+
+
+	// Damos el formato a nuestra data enviado al backend
+
+
 		var FormData = {
 			//kpi fecha....................................................
-			'fechaIngresot' : document.formTwitter.fechaIngresot.value,
-			'fechaTerminot' : document.formTwitter.fechaTerminot.value,
+			'fechaIngreso' : document.formTwitter.fechaIngreso.value,
+			'fechaTermino' : document.formTwitter.fechaTermino.value,
 		//kpi tweeter...................................................
 			'followersTw' : document.formTwitter.followersTw.value,
 			'reachTw' : document.formTwitter.reachTw.value,
@@ -405,7 +409,7 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 			'contribuidoresTw' : document.formTwitter.contribuidoresTw.value,
 			'generadosTw' : document.formTwitter.generadosTw.value,
 			'retweetsTw' : document.formTwitter.retweetsTw.value,
-			'repilesTw' : document.formTwitter.repilesTw.value,
+			'repliesTw' : document.formTwitter.repliesTw.value,
 			'mentionsTw' : document.formTwitter.mentionsTw.value
 		};
 
