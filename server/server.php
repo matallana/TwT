@@ -12,7 +12,6 @@ session_start();
 
 $response = [];
 
- 
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
 
@@ -27,13 +26,13 @@ $query = "SELECT * FROM `usr_usuario` WHERE emaiUsuario = '$username' AND claveU
 $result = mysqli_query($con, $query);
 
 if(mysqli_num_rows($result) > 0){
-	$response['status'] = 'loggedin';
-	$response['user'] = $username;
-	$response['useruniqueid'] = md5(uniqid());
-	$_SESSION['useruniqueid'] = $response['useruniqueid'];
+    $response['status'] = 'loggedin';
+    $response['user'] = $username;
+    $response['useruniqueid'] = md5(uniqid());
+    $_SESSION['useruniqueid'] = $response['useruniqueid'];
 
 }else {
-	$response['status']= 'error';
+    $response['status']= 'error';
 }
 
 
