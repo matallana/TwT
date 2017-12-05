@@ -60,10 +60,10 @@
                         </li>
                         <li>
                           <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Clientes<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
-                          <div id="collapseFour" class="panel-collapse collapse">
+                          <div id="collapseFour" class="panel-collapse collapse in">
                               <ul class="sub-menu">
-                                <li>
-                                  <a class="buttonMenu _title" data-target="#" ng-href="/agregar"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Agregar</a>
+                                <li class="selectedMenu0">
+                                  <a class="buttonMenu _title"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Agregar</a>
                                 </li>
                                 <li>
                                   <a class="buttonMenu _title" data-target="#" ng-href="/visualizarC"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
@@ -73,10 +73,10 @@
                         </li>
                         <li>
                             <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Usuario<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
-                            <div id="collapseFive" class="panel-collapse collapse in">
+                            <div id="collapseFive" class="panel-collapse collapse">
                                 <ul class="sub-menu">
-                                  <li class="selectedMenu0">
-                                    <a class="buttonMenu _title"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Crear</a>
+                                  <li>
+                                    <a class="buttonMenu _title" data-target="#" ng-href="/crear"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Crear</a>
                                   </li>
                                   <li>
                                     <a class="buttonMenu _title" data-target="#" ng-href="/visualizarU"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
@@ -132,118 +132,128 @@
       
           </div>
        </nav>
-       <!--FIN NAVEGADOR-->
-      
-        
+   <!--FIN NAVEGADOR-->
+  
+    
 <div class="col-lg-4" ng-controller = "dashboardCtrl">
-        <div class="panel panel-default" id="panelRegistro">
-            <div class="panel-heading fondo">
-              <span id="tituloCrud">Registro usuario</span>
-            </div>
-    
-            <div class="panel-body">
-               
-                    <br> 
-                <div  class = "form-group" id="usuario">
-                    <form name="formUsuario">
-                            <label>Seleccion de Perfil</label>
-                            <select name="eleccion" id="eleccion" ng-model="eleccion" class="form-control" ng-controller="userCtrl">
-                                    <option value="">Seleccionar Perfil</option>
-                                    <option ng-repeat="perfil in users" value="{{perfil.idPerfil}}">{{perfil.nombrePerfil}}</option>
-                            </select>
-                            <br>
-                        <label for="nombreUsuario">Nombre usuario:</label>
-                        <div ng-hide="eleccion==='4'" class='input-group inputGroupLapiz'>
-                            <input type="text" placeholder="Soila" focusable min="0" class="form-control inputNumero" id="nombreUsuario" ng-model="nombreUsuario" required>
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                            </span>
-                        </div>
-                        <br>
-    
-                       <label  for="apellidoUsuario">Apellido usuario:</label>
-                        <div  class='input-group inputGroupLapiz'> 
-                            <input type="text" placeholder="Cerda" min="0" class="form-control inputNumero" id="apellidoUsuario" ng-model= "apellidoUsuario">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                            </span>
-                        </div>
-                        <br>
-    
-                       <label  for="emailUsuario">Email usuario:</label>
-                        <div  class='input-group inputGroupLapiz'>
-                        <input type="email" placeholder="soila.cerda@yopmail.com" min="0" class="form-control inputNumero" id="emailUsuario" ng-model= "emailUsuario">
+    <div class="panel panel-default" id="panelRegistro">
+        <div class="panel-heading fondo">
+          <span id="tituloCrud">Registro cliente</span>
+        </div>
+
+        <div class="panel-body"
+            <div  class = "form-group" id="cliente">
+                <form name="formCliente">
+
+                    
+
+                    
+
+                    <!-- <label   for="nombreEmpresa">Nombre empresa:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                        <input type="text" placeholder="BrechaDigital" focusable min="0" class="form-control inputNumero" id="nombreEmpresa" ng-model="nombreEmpresa" required>
                         <span class="input-group-addon inputGroupAddonLapiz">
-                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                            </span>
-                        </div>
-                        <br>
-                        <label   for="avatarUsuario">Avatar usuario:</label>
-                        <div  class='input-group inputGroupLapiz'>
-                            <input type="file" focusable min="0" class="form-control inputNumero" id="avatarUsuario"  ng-model="avatarUsuario">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br> -->
+
+                    <label  for="nombreCliente">Nombre cliente :</label>
+                    <div  class='input-group inputGroupLapiz'>
+                        <input type="text" placeholder="Armando" min="0" class="form-control inputNumero" id="nombreCliente"  ng-model= "nombreCliente">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+
+                    <label for="apellidoPCliente">Apellido paterno cliente:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                        <input type="text" placeholder="Casas" min="0" class="form-control inputNumero" id="apellidoPCliente" ng-model= "apellidoPCliente">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+.
+                    <label  for="apellidoMCliente">Apellido materno cliente:</label>                            
+                    <div  class='input-group inputGroupLapiz'>
+
+                        <input type="text" placeholder="Rojas" min="0" class="form-control inputNumero" id="apellidoMCliente" ng-model= "apellidoMCliente">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+                    
+                    <label  for="emailCliente">Email cliente:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                    <input type="email" placeholder="Armando.casas@yopmail.com" min="0" class="form-control inputNumero" id="emailCliente" ng-model= "emailCliente">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+                    <label  for="telefonoMovilCliente">Telefono movil:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                    <input type="tel" placeholder="56977885522" min="0" class="form-control inputNumero" id="telefonoMovilCliente" ng-model= "telefonoMovilCliente">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+                    <br>
+                   
+                   <label  for="telefonoFijoCliente">Telefono fijo:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                    <input type="number" placeholder="(2)25425267" min="0" class="form-control inputNumero" id="telefonoFijoCliente" ng-model= "telefonoFijoCliente">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                        </span>
+                    </div>
+
+                    <br>
+                    <label  for="claveCliente">Contraseña:</label> 
+                    <div  class='input-group inputGroupLapiz'>
+                            <input type="password" min="6" class="form-control inputNumero" id="claveCliente" ng-model="claveCliente" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" required>
                             <span class="input-group-addon inputGroupAddonLapiz">
-                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                            </span>
-                        </div>
-                        <br>
-                        <label  for="claveUsuariop">Contraseña:</label> 
-                        <div  class='input-group inputGroupLapiz'>
-                                <input type="password" min="6" class="form-control inputNumero" id="claveUsuario" ng-model="claveUsuario" ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/" required>
-                                <span class="input-group-addon inputGroupAddonLapiz">
-                                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                    </span>
-                                </div>
-                        <br>
-                        <label for="fechaCreacion">Fecha Creación:</label>
-                        <div class='input-group date' id='datepicker'>
-                            <input ng-model= "fechaCreacion" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaCreacion">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar">
+                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
                                 </span>
+                            </div>
+                    <br>
+                    <label for="fechaCreacionC">Fecha Creación:</label>
+                    <div class='input-group date' id='datepicker'>
+                        <input ng-model= "fechaCreacionC" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaCreacionC">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar">
                             </span>
-                        </div>
-                        <br>
-                        
-                        <label  for="telefonoMovilUsuario">Telefono movil:</label>
-                        <div  class='input-group inputGroupLapiz'>
-                        <input type="tel" placeholder="56977885522" min="0" class="form-control inputNumero" id="telefonoMovilUsuario" ng-model= "telefonoMovilUsuario">
-                        <span class="input-group-addon inputGroupAddonLapiz">
-                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                            </span>
-                        </div>
-                        <br>
-                       
-                       <label  for="telefonoFijiUsuario">Telefono fijo:</label>
-                        <div  class='input-group inputGroupLapiz'>
-                        <input type="number" placeholder="(2)25425267" min="0" class="form-control inputNumero" id="telefonoFijoUsuario" ng-model= "telefonoFijoUsuario">
-                        <span class="input-group-addon inputGroupAddonLapiz">
-                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                            </span>
-                        </div>
-                        <br>
-                    </form>
-                </div>
-    
+                        </span>
+                    </div>
+                    <br>
+                    
+
+
+                </form>
             </div>
-            <div id= "buttons">
-    <button ng-disabled="!formUsuario.$valid" type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarUsuario()" class="btn btn-primary">Guardar</button> 
-    </div>
-    <footer>
-            Todos los derechos reservados @brechadigital 2017
-        </footer>
-        
+
+            
         </div>
+        <div id= "buttons">
+<button ng-disabled="!formCliente.$valid" type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarCliente()" class="btn btn-primary">Guardar</button> 
+</div>
+<footer>
+    Todos los derechos reservados @brechadigital 2017
+</footer>
     </div>
+   
+</div>
 
 
     
-        
-        
-        </div>
-    
-        <script>
-                $("#menu-toggle").click(function(e) {
-                    e.preventDefault();
-                    $("#wrapper").toggleClass("toggled");
-                });
-        </script>
+    </div>
+
+    <script>
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+    </script>
