@@ -1,388 +1,390 @@
 <head>
-        <meta charset="utf-8">
-          <style media="screen">
-              
-              .sub-menu {
-                background-color: #949494;
-                width: 250px;
-                margin: 0;
-                padding: 0;
-                list-style: none;
-                border-top: solid 1px #abadaf;
-                border-bottom: solid 1px #abadaf;
-              }
-        
-              .sub-menu li a {
-                color : rgb(255, 255, 255) !important;
-              }
-        
-            </style>
-      
-      
-      </head>
+    <meta charset="utf-8">
+      <style media="screen">
+          
+          .sub-menu {
+            background-color: #949494;
+            width: 250px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-top: solid 1px #abadaf;
+            border-bottom: solid 1px #abadaf;
+          }
     
-    <body ng-app="main"> 
-        <div id="wrapper" >
-      
-        <div id="sidebar-wrapper">
-          <ul class="sidebar-nav" id="accordion">
-              <li style="background: #df0000;" class="sidebar-brand-nuevo">
-                <!--<img src="static/img/logo-1000x1000.png" style="width:80%; margin-right:5px;" alt="">-->
-                <span>MENU</span>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li>
-                  <a  class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo"><span style="margin-right:10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span>Administracion<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam> </a>
-                  <div id="collapseTwo" class="panel-collapse collapse">
-                      <ul class="sub-menu">
-                        <li>
-                          <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTree"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Perfil<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
-                          <div id="collapseTree" class="panel-collapse collapse">
-                              <ul class="sub-menu">
-                                <li>
-                                  <a class="buttonMenu _title" data-target="#" ng-href="/perfil"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Perfiles</a>
-                                </li>
-                              </ul>
-                            </div>
-                        </li>
-                        <li>
-                          <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseSeven"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Empresa<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
-                          <div id="collapseSeven" class="panel-collapse collapse">
-                              <ul class="sub-menu">
-                                <li>
-                                  <a class="buttonMenu _title" data-target="#" ng-href="/agregarE"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true" ng-href="/AgregarE"></span>Agregar Nueva</a>
-                                </li>
-                                <li>
-                                  <a class="buttonMenu _title" data-target="#" ng-href="/visualizarE"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
-                                </li>
-                              </ul>
-                            </div>
-                        </li>
-                        <li>
-                          <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Clientes<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
-                          <div id="collapseFour" class="panel-collapse collapse">
-                              <ul class="sub-menu">
-                                <li>
-                                  <a class="buttonMenu _title" data-target="#" ng-href="/agregar"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Agregar</a>
-                                </li>
-                                <li>
-                                  <a class="buttonMenu _title" data-target="#" ng-href="/visualizarC"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
-                                </li>
-                              </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Usuario<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
-                            <div id="collapseFive" class="panel-collapse collapse">
-                                <ul class="sub-menu">
-                                  <li>
-                                    <a class="buttonMenu _title" data-target="#" ng-href="/crear"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Crear</a>
-                                  </li>
-                                  <li>
-                                    <a class="buttonMenu _title" data-target="#" ng-href="/visualizarU"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
-                                  </li>
-                                </ul>
-                              </div>
-                        </li>
-                      </ul>
-                    </div>
-              </li>
-      
-              <li>
-                  <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseSix"><span style="margin-right:10px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
-                  <div id="collapseSix" class="panel-collapse collapse">
-                      <ul class="sub-menu">
-                        <li>
-                          <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Empresas</a>
-                        </li>
-                        <li>
-                          <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Clientes</a>
-                        </li>
-                      </ul>
-                    </div>
-              </li>
-              <li>
-                  <a class="buttonMenu _title"  href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPIs</a>
-              </li>
-      
-                  <!-- <li>
-                  <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span style="margin-right:10px;" class="glyphicon glyphicon-signal" aria-hidden="true"></span>Gráficos</a>
-              </li> -->
-          </ul>
-          <div style="position:absolute; bottom:20px; text-align: center;">
-            <!--<img src="static/img/logo-1000x1000.png" width="40%" alt="">-->
-          </div>
-      
-        </div>
-        <!--NAVEGADOR-->
-        <nav style="background-color:#b34444; border-bottom: none;" class = "navbar navbar-inverse navbar-static-top" role = "navigation">
-          <div class="container-fluid">
-            <div class="navbar-header" style="width:100%;">
-              <a class="navbar-brand" href="#">
-                <span id="menu-toggle" style="color:#FFF;" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-              </a>
-              <span class="titulo_top">SISTEMA DE GESTIÓN DE KPI's</span>
-              <div class="dropdown navbar-brand" style="float:right;">
-                <span style="cursor:pointer; color:rgb(255, 255, 255);" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="glyphicon glyphicon-log-out"  aria-hidden="true"></span>
-                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu3">
-                  <li><a class="buton-conf" ng-click="goToLogout()" href="#">Salir</a></li>
-                </ul>
-              </div>
-            </div>
-      
-          </div>
-       </nav>
-       <!--FIN NAVEGADOR-->
+          .sub-menu li a {
+            color : rgb(255, 255, 255) !important;
+          }
+    
+        </style>
+  
+  
+  </head>
 
-       <!-- cuerpo-->
+<body ng-app="main"> 
+    <div id="wrapper" >
+  
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav" id="accordion">
+          <li style="background: #df0000;" class="sidebar-brand-nuevo">
+            <!--<img src="static/img/logo-1000x1000.png" style="width:80%; margin-right:5px;" alt="">-->
+            <span>MENU</span>
+          </li>
+          <li role="separator" class="divider"></li>
+          <li>
+              <a  class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo"><span style="margin-right:10px;" class="glyphicon glyphicon-list" aria-hidden="true"></span>Administracion<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam> </a>
+              <div id="collapseTwo" class="panel-collapse collapse">
+                  <ul class="sub-menu">
+                    <li>
+                      <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTree"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Perfil<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
+                      <div id="collapseTree" class="panel-collapse collapse">
+                          <ul class="sub-menu">
+                            <li>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/perfil"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Perfiles</a>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+                    <li>
+                      <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseSeven"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Empresa<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
+                      <div id="collapseSeven" class="panel-collapse collapse">
+                          <ul class="sub-menu">
+                            <li>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/agregarE"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true" ng-href="/AgregarE"></span>Agregar Nueva</a>
+                            </li>
+                            <li>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/visualizarE"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+                    <li>
+                      <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Clientes<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
+                      <div id="collapseFour" class="panel-collapse collapse">
+                          <ul class="sub-menu">
+                            <li>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/agregar"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Agregar</a>
+                            </li>
+                            <li>
+                              <a class="buttonMenu _title" data-target="#" ng-href="/visualizarC"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
+                            </li>
+                          </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Usuario<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                            <ul class="sub-menu">
+                              <li>
+                                <a class="buttonMenu _title" data-target="#" ng-href="/crear"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Crear</a>
+                              </li>
+                              <li>
+                                <a class="buttonMenu _title" data-target="#" ng-href="/visualizarU"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Visualizar</a>
+                              </li>
+                            </ul>
+                          </div>
+                    </li>
+                  </ul>
+                </div>
+          </li>
+  
+          <li>
+              <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseSix"><span style="margin-right:10px;" class="glyphicon glyphicon-user" aria-hidden="true"></span>Usuario<spam style="margin-left:30px;" class="glyphicon glyphicon-menu-down" aria-hidden="true"></spam></a>
+              <div id="collapseSix" class="panel-collapse collapse">
+                  <ul class="sub-menu">
+                    <li>
+                      <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>Empresas</a>
+                    </li>
+                    <li>
+                      <a class="buttonMenu _title" data-target="#"><span style="margin-right:10px; margin-left: 15%;" class="glyphicon glyphicon-file" aria-hidden="true"></span>Clientes</a>
+                    </li>
+                  </ul>
+                </div>
+          </li>
+          <li class="selectedMenu0">
+              <a class="buttonMenu _title"  href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPIs</a>
+          </li>
+  
+              <!-- <li>
+              <a class="buttonMenu _title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span style="margin-right:10px;" class="glyphicon glyphicon-signal" aria-hidden="true"></span>Gráficos</a>
+          </li> -->
+      </ul>
+      <div style="position:absolute; bottom:20px; text-align: center;">
+        <!--<img src="static/img/logo-1000x1000.png" width="40%" alt="">-->
+      </div>
+  
+    </div>
+    <!--NAVEGADOR-->
+    <nav style="background-color:#b34444; border-bottom: none;" class = "navbar navbar-inverse navbar-static-top" role = "navigation">
+      <div class="container-fluid">
+        <div class="navbar-header" style="width:100%;">
+          <a class="navbar-brand" href="#">
+            <span id="menu-toggle" style="color:#FFF;" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+          </a>
+          <span class="titulo_top">SISTEMA DE GESTIÓN DE KPI's</span>
+          <div class="dropdown navbar-brand" style="float:right;">
+            <span style="cursor:pointer; color:rgb(255, 255, 255);" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="glyphicon glyphicon-log-out"  aria-hidden="true"></span>
+            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu3">
+              <li><a class="buton-conf" ng-click="goToLogout()" href="#">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+  
+      </div>
+   </nav>
+   <!--FIN NAVEGADOR-->
+
+   <!-- cuerpo-->
 
 <div class="col-lg-4" ng-controller = "dashboardCtrl">
-        <div class="panel panel-default" id="panelRegistro">
-            <div class="panel-heading fondo">
-              <span id="tituloCrud">Ingreso KPI's</span>
-            </div>
+    <div class="panel panel-default" id="panelRegistro">
+        <div class="panel-heading fondo">
+          <span id="tituloCrud">Ingreso KPI's</span>
+        </div>
 
-            <div class="panel-body">
-                <div class = "form-group text-center">
-                    <label>Seleccione tipo de cuenta:</label>
-                    <br>
-                    <br>
-
-                
-                    <div class = "radio-inline">
-                        <label for ="seleccionRd"><input checked id="seleccionRd" name= "seleccionRd" type="radio" ng-model= "seleccionRd" value="1" ><img src="/imagen/fb.png" alt="Facebook" height="42" width="42"></label>
-                    </div>
-                    <div class = "radio-inline">
-                        <label for= "seleccionRd"><input id="seleccionRd" name= "seleccionRd" type="radio" ng-model= "seleccionRd" value="2" ><img src="/imagen/tw.png" alt="Twitter" height="42" width="42"></label>
-                    </div>
-                    <div class = "radio-inline">
-                            <label for= "seleccionRd"><input id="seleccionRd" name= "seleccionRd" type="radio" ng-model= "seleccionRd" value="3" ><img src="/imagen/ht.png" alt="Web" height="42" width="42"></label>
-                        </div>
-                        
-                 
-                </div>
-               
+        <div class="panel-body">
+            <div class = "form-group text-center">
+                <label>Seleccione tipo de cuenta:</label>
+                <br>
                 <br>
 
-                <div ng-show="seleccionRd==='1'" class = "form-group" id="facebook">
-                        <form  name="formFacebook">
-
-                                <label for="fechaIngreso">Fecha ingreso:</label>
-                                <div class='input-group date' id='datepicker'>
-                                    <input ng-model= "fechaIngreso" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaIngreso">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar">
-                                        </span>
-                                    </span>
-                                </div>
-                                    <br>
-                                    <label for="fechaTermino">Fecha termino:</label>
-                                    <div class='input-group date' id='datepicker'>
-                                        <input ng-model= "fechaTermino" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaTermino">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar">
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <br>
+            
+                <div class = "radio-inline">
+                    <label for ="seleccionRd"><input checked id="seleccionRd" name= "seleccionRd" type="radio" ng-model= "seleccionRd" value="1" ><img src="/imagen/fb.png" alt="Facebook" height="42" width="42"></label>
+                </div>
+                <div class = "radio-inline">
+                    <label for= "seleccionRd"><input id="seleccionRd" name= "seleccionRd" type="radio" ng-model= "seleccionRd" value="2" ><img src="/imagen/tw.png" alt="Twitter" height="42" width="42"></label>
+                </div>
+                <div class = "radio-inline">
+                        <label for= "seleccionRd"><input id="seleccionRd" name= "seleccionRd" type="radio" ng-model= "seleccionRd" value="3" ><img src="/imagen/ht.png" alt="Web" height="42" width="42"></label>
+                    </div>
                     
-                         <label  for="fansFb">Fans:</label>
-                        <div  class='input-group inputGroupLapiz'>
-                        <input ng-model="fansFb" type="number" min="0" class="form-control inputNumero" id="fansFb">
-                        <span class="input-group-addon inputGroupAddonLapiz">
-                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                        </span>
-                        </div>
-                        <br>
-                        <label  for="alcanceFb">Alcance:</label>
-                         <div  class='input-group inputGroupLapiz'>
-                        <input ng-model="alcanceFb" type="number" min="0" class="form-control inputNumero" id="alcanceFb">
-                        <span class="input-group-addon inputGroupAddonLapiz">
-                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                        </span>
-                        </div>
-                        <br>
-                        <label  for="impresionesFb">Impresiones:</label>
-                        <div  class='input-group inputGroupLapiz'>
-                        <input ng-model="impresionesFb" type="number" min="0" class="form-control inputNumero" id="impresionesFb">
-                        <span class="input-group-addon inputGroupAddonLapiz">
-                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                        </span>
-                        </div>
-                        <br>
-                        <label  for="interaccionesFb">Interacciones:</label>
-                        <div  class='input-group inputGroupLapiz'>
-                        <input ng-model="interaccionesFb" type="number" min="0" class="form-control inputNumero" id="interaccionesFb">
-                        <span class="input-group-addon inputGroupAddonLapiz">
-                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                        </span>
-                        </div>
-                        <br>
-                        <label  for="publicacionesFb">Publicaciones:</label>
-                        <div  class='input-group inputGroupLapiz'>
-                        <input ng-model="publicacionesFb" type="number" min="0" class="form-control inputNumero" id="publicacionesFb">
-                        <span class="input-group-addon inputGroupAddonLapiz">
-                            <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                        </span>
-                        </div>
-                        <br>
-                        <br>
-                    </form>
-                    <div id= "buttons">
-                            <button  type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarKpifb()" class="btn btn-primary">Guardar</button> 
-                </div>
-                </div>
-                
+             
+            </div>
+           
+            <br>
 
-                <div ng-show="seleccionRd==='2'" class = "form-group" id="twitter">
-                    <form id="formTwitter">
-                            
-                            <label for="fechaIngresot">Fecha ingreso:</label>
+            <div ng-show="seleccionRd==='1'" class = "form-group" id="facebook">
+                    <form  name="formFacebook">
+
+                            <label for="fechaIngreso">Fecha ingreso:</label>
                             <div class='input-group date' id='datepicker'>
-                                <input ng-model= "fechaIngresot" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaIngresot">
+                                <input ng-model= "fechaIngreso" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaIngreso">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar">
                                     </span>
                                 </span>
                             </div>
                                 <br>
-                                <label for="fechaTerminot">Fecha termino:</label>
+                                <label for="fechaTermino">Fecha termino:</label>
                                 <div class='input-group date' id='datepicker'>
-                                    <input ng-model= "fechaTerminot" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaTerminot">
+                                    <input ng-model= "fechaTermino" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaTermino">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar">
                                         </span>
                                     </span>
                                 </div>
                                 <br>
-
-                            <label  for="followersTw">Followers:</label>
-                            <div  class='input-group inputGroupLapiz'>
-                            <input ng-model="followersTw" type="number" min="0" class="form-control inputNumero" id="followersTw">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <label  for="reachTw">Reach:</label>
-                            <div class='input-group inputGroupLapiz'>
-                            <input ng-model="reachTw" type="number" min="0" class="form-control inputNumero" id="reachTw">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <label  for="impressionsTw">Impressions:</label>
-                            <div  class='input-group inputGroupLapiz'>
-                            <input ng-model="impressionsTw" type="number" min="0" class="form-control inputNumero" id="impressionsTw">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <label  for="contribuidoresTw">Contribuidores:</label>
-                            <div  class='input-group inputGroupLapiz'>
-                            <input ng-model="contribuidoresTw" type="number" min="0" class="form-control inputNumero" id="contribuidoresTw">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <label  for="generadosTw">Tweets Generados:</label>
-                            <div  class='input-group inputGroupLapiz'>
-                            <input ng-model="generadosTw" type="number" min="0" class="form-control inputNumero" id="generadosTw">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                </span>
-                            </div>
-  
-                            <br>
-                            <label  for="retweetsTw">Retweets:</label>
-                            <div  class='input-group inputGroupLapiz'>
-                            <input ng-model="retweetsTw" type="number" min="0" class="form-control inputNumero" id="retweetsTw">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <label  for="repliesTw">Replies:</label>
-                            <div  class='input-group inputGroupLapiz'>
-                            <input ng-model="repliesTw" type="number" min="0" class="form-control inputNumero" id="repliesTw">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <label  for="mentionsTw">Mentions:</label>
-                            <div  class='input-group inputGroupLapiz'>
-                            <input ng-model="mentionsTw" type="number" min="0" class="form-control inputNumero" id="mentionsTw">
-                            <span class="input-group-addon inputGroupAddonLapiz">
-                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                </span>
-                            </div>
-                            <br>
-                            <br>
-                            <button  ng-click="insertarKpitw()" type="submit" style="width:100%; background:#e20514; border-color:#e20514;"  class="btn btn-primary">Guardar</button>
-                        </form>
-                </div>
-                <div ng-show="seleccionRd==='3'" class = "form-group" id="web">
-                        <form name="formWeb">
-
-                                <label for="fechaIngreso">Fecha ingreso:</label>
-                                <div class='input-group date' id='datepicker'>
-                                    <input ng-model= "fechaIngreso" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaIngreso">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar">
-                                        </span>
-                                    </span>
-                                </div>
-                                    <br>
-                                    <label for="fechaTermino">Fecha termino:</label>
-                                    <div class='input-group date' id='datepicker'>
-                                        <input ng-model= "fechaTermino" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaTermino">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar">
-                                            </span>
-                                        </span>
-                                    </div>
-                                    <br>
-
-                                <label  for="visitasWb">Vistas Únicas:</label>
-                                <div  class='input-group inputGroupLapiz'>
-                                <input ng-model="visitasWb" type="number" min="0" class="form-control inputNumero" id="visitasWb">
-                                <span class="input-group-addon inputGroupAddonLapiz">
-                                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                    </span>
-                                </div>
-                                <br>
-                                <label  for="reboteWb">Rebote:</label>
-                                <div  class='input-group inputGroupLapiz'>
-                                <input ng-model="reboteWb" type="number" min="0" class="form-control inputNumero" id="reboteWb">
-                                <span class="input-group-addon inputGroupAddonLapiz">
-                                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                    </span>
-                                </div>
-                                <br>
-                                <label  for="permanenciaWb">Permanencia:</label>
-                                <div  class='input-group inputGroupLapiz'>
-                                <input ng-model="permanenciaWb" type="number" min="0" class="form-control inputNumero" id="permanenciaWb">
-                                <span class="input-group-addon inputGroupAddonLapiz">
-                                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
-                                    </span>
-                                </div>
-                                <br>
-                                <br>
-                        </form>
-                        <div id= "buttons">
-                                <button  type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarKpiwb()" class="btn btn-primary">Guardar</button> 
+                
+                     <label  for="fansFb">Fans:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                    <input ng-model="fansFb" type="number" min="0" class="form-control inputNumero" id="fansFb">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                    </span>
                     </div>
-                </div>
-                <footer>
-                        Todos los derechos reservados @brechadigital 2017
-                </footer>
+                    <br>
+                    <label  for="alcanceFb">Alcance:</label>
+                     <div  class='input-group inputGroupLapiz'>
+                    <input ng-model="alcanceFb" type="number" min="0" class="form-control inputNumero" id="alcanceFb">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                    </span>
+                    </div>
+                    <br>
+                    <label  for="impresionesFb">Impresiones:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                    <input ng-model="impresionesFb" type="number" min="0" class="form-control inputNumero" id="impresionesFb">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                    </span>
+                    </div>
+                    <br>
+                    <label  for="interaccionesFb">Interacciones:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                    <input ng-model="interaccionesFb" type="number" min="0" class="form-control inputNumero" id="interaccionesFb">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                    </span>
+                    </div>
+                    <br>
+                    <label  for="publicacionesFb">Publicaciones:</label>
+                    <div  class='input-group inputGroupLapiz'>
+                    <input ng-model="publicacionesFb" type="number" min="0" class="form-control inputNumero" id="publicacionesFb">
+                    <span class="input-group-addon inputGroupAddonLapiz">
+                        <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                    </span>
+                    </div>
+                    <br>
+                    <br>
+                </form>
+                <div id= "buttons">
+                        <button  type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarKpifb()" class="btn btn-primary">Guardar</button> 
             </div>
-           
+            </div>
+            
+
+            <div ng-show="seleccionRd==='2'" class = "form-group" id="twitter">
+                <form name="formTwitter">
+                        
+                        <label for="fechaIngreso">Fecha ingreso:</label>
+                        <div class='input-group date' id='datepicker'>
+                            <input ng-model= "fechaIngreso" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaIngreso">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar">
+                                </span>
+                            </span>
+                        </div>
+                            <br>
+                            <label for="fechaTermino">Fecha termino:</label>
+                            <div class='input-group date' id='datepicker'>
+                                <input ng-model= "fechaTermino" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaTermino">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar">
+                                    </span>
+                                </span>
+                            </div>
+                            <br>
+
+                        <label  for="followersTw">Followers:</label>
+                        <div  class='input-group inputGroupLapiz'>
+                        <input ng-model="followersTw" type="number" min="0" class="form-control inputNumero" id="followersTw">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label  for="reachTw">Reach:</label>
+                        <div class='input-group inputGroupLapiz'>
+                        <input ng-model="reachTw" type="number" min="0" class="form-control inputNumero" id="reachTw">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label  for="impressionsTw">Impressions:</label>
+                        <div  class='input-group inputGroupLapiz'>
+                        <input ng-model="impressionsTw" type="number" min="0" class="form-control inputNumero" id="impressionsTw">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label  for="contribuidoresTw">Contribuidores:</label>
+                        <div  class='input-group inputGroupLapiz'>
+                        <input ng-model="contribuidoresTw" type="number" min="0" class="form-control inputNumero" id="contribuidoresTw">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label  for="generadosTw">Tweets Generados:</label>
+                        <div  class='input-group inputGroupLapiz'>
+                        <input ng-model="generadosTw" type="number" min="0" class="form-control inputNumero" id="generadosTw">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+
+                        <br>
+                        <label  for="retweetsTw">Retweets:</label>
+                        <div  class='input-group inputGroupLapiz'>
+                        <input ng-model="retweetsTw" type="number" min="0" class="form-control inputNumero" id="retweetsTw">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label  for="repliesTw">Replies:</label>
+                        <div  class='input-group inputGroupLapiz'>
+                        <input ng-model="repliesTw" type="number" min="0" class="form-control inputNumero" id="repliesTw">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <label  for="mentionsTw">Mentions:</label>
+                        <div  class='input-group inputGroupLapiz'>
+                        <input ng-model="mentionsTw" type="number" min="0" class="form-control inputNumero" id="mentionsTw">
+                        <span class="input-group-addon inputGroupAddonLapiz">
+                                <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                            </span>
+                        </div>
+                        <br>
+                        <br>
+                    </form>
+                    <div id= "buttons">
+                            <button  type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarKpitw()" class="btn btn-primary">Guardar</button> 
+                </div>
+            </div>
+            <div ng-show="seleccionRd==='3'" class = "form-group" id="web">
+                    <form name="formWeb">
+
+                            <label for="fechaIngreso">Fecha ingreso:</label>
+                            <div class='input-group date' id='datepicker'>
+                                <input ng-model= "fechaIngreso" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaIngreso">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar">
+                                    </span>
+                                </span>
+                            </div>
+                                <br>
+                                <label for="fechaTermino">Fecha termino:</label>
+                                <div class='input-group date' id='datepicker'>
+                                    <input ng-model= "fechaTermino" type='date' ng-value="{{date| date:'yyyy/MM/dd'}}" date-parser="yyyy/MM/dd" requred  class="form-control" id="fechaTermino">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar">
+                                        </span>
+                                    </span>
+                                </div>
+                                <br>
+
+                            <label  for="visitasWb">Vistas Únicas:</label>
+                            <div  class='input-group inputGroupLapiz'>
+                            <input ng-model="visitasWb" type="number" min="0" class="form-control inputNumero" id="visitasWb">
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                                </span>
+                            </div>
+                            <br>
+                            <label  for="reboteWb">Rebote:</label>
+                            <div  class='input-group inputGroupLapiz'>
+                            <input ng-model="reboteWb" type="number" min="0" class="form-control inputNumero" id="reboteWb">
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                                </span>
+                            </div>
+                            <br>
+                            <label  for="permanenciaWb">Permanencia:</label>
+                            <div  class='input-group inputGroupLapiz'>
+                            <input ng-model="permanenciaWb" type="number" min="0" class="form-control inputNumero" id="permanenciaWb">
+                            <span class="input-group-addon inputGroupAddonLapiz">
+                                    <span class="glyphicon glyphicon-pencil glyphiconLapiz"></span>
+                                </span>
+                            </div>
+                            <br>
+                            <br>
+                    </form>
+                    <div id= "buttons">
+                            <button  type="submit" style="width:100%; background:#e20514; border-color:#e20514;" ng-click="insertarKpiwb()" class="btn btn-primary">Guardar</button> 
+                </div>
+            </div>
+            <footer>
+                    Todos los derechos reservados @brechadigital 2017
+            </footer>
         </div>
+       
+    </div>
 </div>
 
 
@@ -391,4 +393,4 @@
 
 
 
-                   
+               

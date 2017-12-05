@@ -9,9 +9,6 @@ var app = angular.module('main', ['ngRoute']);
 //Se configuran las rutas 
 app.config(function($routeProvider, $locationProvider){
 	$routeProvider.when('/',{
-		templateUrl: './component/preload.html',
-		controller: 'loginCtrl'
-	}).when('/login',{
 		templateUrl: './component/login.html',
 		controller: 'loginCtrl'
 	}).when('/logout', {
@@ -21,6 +18,10 @@ app.config(function($routeProvider, $locationProvider){
 				$location.path('/login');
 			}
 		}
+	})
+	.when('/login', {
+		templateUrl: './component/login.html',
+		controller: 'loginCtrl'
 	}).when('/dashboard', {
 		resolve: {
 		    check: function($location, user){
@@ -144,7 +145,6 @@ app.config(function($routeProvider, $locationProvider){
 app.service('user', function(){
 	var username;
 	var loggedin = false;
-	var permisses;
 	var id;
 
 	this.getName = function(){
@@ -393,11 +393,15 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 	};
 
 	$scope.insertarKpitw = function(){
-		console.log($scope.seleccionRd);
+
+
+	// Damos el formato a nuestra data enviado al backend
+
+
 		var FormData = {
 			//kpi fecha....................................................
-			'fechaIngresot' : document.formTwitter.fechaIngresot.value,
-			'fechaTerminot' : document.formTwitter.fechaTerminot.value,
+			'fechaIngreso' : document.formTwitter.fechaIngreso.value,
+			'fechaTermino' : document.formTwitter.fechaTermino.value,
 		//kpi tweeter...................................................
 			'followersTw' : document.formTwitter.followersTw.value,
 			'reachTw' : document.formTwitter.reachTw.value,
@@ -405,7 +409,7 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 			'contribuidoresTw' : document.formTwitter.contribuidoresTw.value,
 			'generadosTw' : document.formTwitter.generadosTw.value,
 			'retweetsTw' : document.formTwitter.retweetsTw.value,
-			'repilesTw' : document.formTwitter.repilesTw.value,
+			'repliesTw' : document.formTwitter.repliesTw.value,
 			'mentionsTw' : document.formTwitter.mentionsTw.value
 		};
 
@@ -517,6 +521,7 @@ app.controller('usuariosCtrl', ['$scope', '$http', function ($scope, $http) {
 	});
 }]);
 	
+
 
 
 
