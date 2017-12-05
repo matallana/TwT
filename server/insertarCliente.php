@@ -17,11 +17,12 @@ $telfmovilC = $dataraw['telfmovilCliente'];
 $telffijoC = $dataraw['telffijoCliente'];
 $claveC = $dataraw['claveCliente'];
 $fechaC = $dataraw['fechaC'];
+$selectEmpresa = $dataraw['selectEmpresa'];
 
 	
 
 $con = mysqli_connect('localhost', 'root', '', 'desarrollo');
-$queryinsertcliente = "INSERT INTO usr_cliente (idCliente, nombreCliente, apellidoPCliente, apellidoMCliente, emailCliente,  telefonoMovilCliente, telefonoFijoCliente, claveCliente, fechaCreacion, user_perfil_idPerfil, empresa_idempresa) values ('','$nombreC','$apellidoPC','$apellidoMC','$emailC' ,'$telfmovilC', '$telffijoC', '$claveC', '$fechaC','4','1') ";  
+$queryinsertcliente = "INSERT INTO usr_cliente (idCliente, nombreCliente, apellidoPCliente, apellidoMCliente, emailCliente,  telefonoMovilCliente, telefonoFijoCliente, claveCliente, fechaCreacion, user_perfil_idPerfil, empresa_idempresa) values ('','$nombreC','$apellidoPC','$apellidoMC','$emailC' ,'$telfmovilC', '$telffijoC', '$claveC', '$fechaC','4','$selectEmpresa') ";  
 
 if (!$con){
 	die('No pudo conectarse: ' . mysql_error());

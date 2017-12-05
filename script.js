@@ -106,8 +106,17 @@ app.config(function($routeProvider, $locationProvider){
 		},
 		templateUrl: './component/usuarios.html',
 		controller: 'dashboardCtrl'
-	})
-	.otherwise({
+	}).when('/ingresaKpi',{
+		resolve: {
+		    check: function($location, user){
+		    	if(!user.isUserLoggedIn()){
+		    		$location.path('/login');
+		        }
+		    }
+		},
+		templateUrl: './component/formularioKpi.html',
+		controller: 'dashboardCtrl'
+	}).otherwise({
 		template: '404'
 	});
 
@@ -275,8 +284,9 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 					'telfmovilCliente' : document.formCliente.telefonoMovilCliente.value,
 					'telffijoCliente' : document.formCliente.telefonoFijoCliente.value,
 					'claveCliente' : document.formCliente.claveCliente.value,
-					'fechaC' : document.formCliente.fechaCreacionC.value
-					
+					'fechaC' : document.formCliente.fechaCreacionC.value,
+					'selectEmpresa' : document.formCliente.seleccion.value
+										
 		};
 			var method = 'POST';
 			var url = 'http://localhost/TwT/server/insertarCliente.php';
@@ -335,6 +345,136 @@ app.controller('dashboardCtrl', function($scope,$location, $http){
 					 console.error(error);
 	});
 };	
+
+//-------------------------------------------------------------------------------
+		//Funcion insertar Empresa
+	$scope.insertarKpifb = function(){
+		
+	
+			// Damos el formato a nuestra data enviado al backend
+	
+		console.log($scope.seleccionRd);
+		var FormData = {
+			//kpi fecha....................................................
+			'fechaIngreso' : document.formFacebook.fechaIngreso.value,
+			'fechaTermino' : document.formFacebook.fechaTermino.value,
+			//kpi facebook.................................................
+			'fansFb' : document.formFacebook.fansFb.value,
+			'alcanceFb' : document.formFacebook.alcanceFb.value,
+			'impresionesFb' : document.formFacebook.impresionesFb.value,
+			'interaccionesFb' : document.formFacebook.interaccionesFb.value,
+			'publicacionesFb' : document.formFacebook.publicacionesFb.value	
+		};
+		var method = 'POST';
+		var url = 'http://localhost/TwT/server/insertarKpifb.php';
+			  // ----------------------------------------------------------------
+	
+			  //Ejecutamos el Http, usando las variables previamente definidas,
+		$http({			
+				url: url,
+				method: method,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				 data:   FormData 
+		}).
+		then(function(response){
+					console.dir(response) // aqui vez desde la consola como te llegan los datos
+					$scope.objects = response.data
+					alert("El Kpi fue registrado exitosamente");
+					console.log(response);
+		},function(error){
+					 alert("Ocurrio un error!, no pudo ser ingresado");
+					 console.error(error);
+					 console.dir(response) // aqui vez desde la consola como te llegan los datos
+					 $scope.objects = response.data
+					 console.log(response);
+		});
+	};
+
+	$scope.insertarKpitw = function(){
+		console.log($scope.seleccionRd);
+		var FormData = {
+			//kpi fecha....................................................
+			'fechaIngresot' : document.formTwitter.fechaIngresot.value,
+			'fechaTerminot' : document.formTwitter.fechaTerminot.value,
+		//kpi tweeter...................................................
+			'followersTw' : document.formTwitter.followersTw.value,
+			'reachTw' : document.formTwitter.reachTw.value,
+			'impressionsTw' : document.formTwitter.impressionsTw.value,
+			'contribuidoresTw' : document.formTwitter.contribuidoresTw.value,
+			'generadosTw' : document.formTwitter.generadosTw.value,
+			'retweetsTw' : document.formTwitter.retweetsTw.value,
+			'repilesTw' : document.formTwitter.repilesTw.value,
+			'mentionsTw' : document.formTwitter.mentionsTw.value
+		};
+
+		var method = 'POST';
+		var url = 'http://localhost/TwT/server/insertarKpitw.php';
+			  // ----------------------------------------------------------------
+	
+			  //Ejecutamos el Http, usando las variables previamente definidas,
+		$http({			
+				url: url,
+				method: method,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				 data:   FormData 
+		}).
+		then(function(response){
+					console.dir(response) // aqui vez desde la consola como te llegan los datos
+					$scope.objects = response.data
+					alert("El Kpi fue registrado exitosamente");
+					console.log(response);
+		},function(error){
+					 alert("Ocurrio un error!, no pudo ser ingresado");
+					 console.error(error);
+					 console.dir(response) // aqui vez desde la consola como te llegan los datos
+					 $scope.objects = response.data
+					 console.log(response);
+		});
+	};
+
+	$scope.insertarKpiwb = function(){
+		console.log($scope.seleccionRd);
+		var FormData = {
+			//kpi fecha....................................................
+			'fechaIngreso' : document.formWeb.fechaIngreso.value,
+			'fechaTermino' : document.formWeb.fechaTermino.value,
+			//Kpi web.......................................................
+		'visitasWb' : document.formWeb.visitasWb.value,
+		'reboteWb' : document.formWeb.reboteWb.value,
+		'permanenciaWb' : document.formWeb.permanenciaWb.value
+		}
+
+		var method = 'POST';
+		var url = 'http://localhost/TwT/server/insertarKpiwb.php';
+			  // ----------------------------------------------------------------
+	
+			  //Ejecutamos el Http, usando las variables previamente definidas,
+		$http({			
+				url: url,
+				method: method,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				},
+				 data:   FormData 
+		}).
+		then(function(response){
+					console.dir(response) // aqui vez desde la consola como te llegan los datos
+					$scope.objects = response.data
+					alert("El Kpi fue registrado exitosamente");
+					console.log(response);
+		},function(error){
+					 alert("Ocurrio un error!, no pudo ser ingresado");
+					 console.error(error);
+					 console.dir(response) // aqui vez desde la consola como te llegan los datos
+					 $scope.objects = response.data
+					 console.log(response);
+		});
+	};
+	
 });		
 
 app.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {

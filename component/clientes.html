@@ -102,7 +102,7 @@
                 </div>
           </li>
           <li>
-              <a class="buttonMenu _title"  href="#"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPIs</a>
+              <a class="buttonMenu _title"  data-target="#" ng-href="/ingresaKpi"><span style="margin-right:10px;" class="glyphicon glyphicon-scale" aria-hidden="true"></span>KPIs</a>
           </li>
   
               <!-- <li>
@@ -151,6 +151,7 @@
               <th>Telegono fijo</th>
               <th>Telefono movil</th>
               <th>Fecha creacion</th>
+              <th>Empresa asociada</th>
               </tr>
           </thead>
           <tbody>
@@ -164,6 +165,7 @@
             <td>{{user.telefonoFijoCliente}}</td>
             <td>{{user.telefonoMovilCliente}}</td>
             <td>{{user.fechaCreacion}}</td>
+            <td>{{user.empresa_idempresa}}</td>
             </tr>
           </tbody>
       </table>
